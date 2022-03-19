@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="01.Header">
+      <UniqueIdentifier>{63c40d60-8f82-42c3-9072-9479ed653679}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Core">
+      <UniqueIdentifier>{061b5ea2-faf7-4e6a-ade4-1abaef0ab1f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default">
+      <UniqueIdentifier>{8203e95c-7d47-41f9-80c3-fc90be002e43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Default\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Default\소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Default\헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="03.Manager">
+      <UniqueIdentifier>{2e4a07ae-b2b1-4062-b44d-21c99477190a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Object">
+      <UniqueIdentifier>{85433daf-f78a-4985-aec1-aac365ee43aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Manager\TimeMgr">
+      <UniqueIdentifier>{4dc28560-8676-447c-915d-2b5d7b4ac3a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Manager\KeyMgr">
+      <UniqueIdentifier>{ba97e4e3-97b7-4437-a13e-1e6e0d4eb2cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Scene">
+      <UniqueIdentifier>{961f797f-c993-41b9-9789-45fa7d0cf0aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Manager\SceneMgr">
+      <UniqueIdentifier>{9d5a7199-2ee5-440c-97a2-ad9d27eac3da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Scene\Scene_Start">
+      <UniqueIdentifier>{21af7337-f571-493d-92af-3a517176f6e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="05.Scene\Scene_Tool">
+      <UniqueIdentifier>{c816095a-9e00-4cc6-a7b1-73667cd3a889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Object\Player">
+      <UniqueIdentifier>{c4e6bcf1-cf34-459d-8540-70a22f20e6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Object\Monster">
+      <UniqueIdentifier>{107d61f1-ce52-43d4-9d27-2cf2b904f001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Object\Missile">
+      <UniqueIdentifier>{55d2546a-679d-4448-a32d-b9e26411d3f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Default\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Default\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CCore.h">
+      <Filter>02.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CObject.h">
+      <Filter>04.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>03.Manager\TimeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CKeyMgr.h">
+      <Filter>03.Manager\KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene.h">
+      <Filter>05.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="CSceneMgr.h">
+      <Filter>03.Manager\SceneMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Start.h">
+      <Filter>05.Scene\Scene_Start</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayer.h">
+      <Filter>04.Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonster.h">
+      <Filter>04.Object\Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="CMissile.h">
+      <Filter>04.Object\Missile</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CCore.cpp">
+      <Filter>02.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="CObject.cpp">
+      <Filter>04.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>03.Manager\TimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CKeyMgr.cpp">
+      <Filter>03.Manager\KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene.cpp">
+      <Filter>05.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="CSceneMgr.cpp">
+      <Filter>03.Manager\SceneMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Start.cpp">
+      <Filter>05.Scene\Scene_Start</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayer.cpp">
+      <Filter>04.Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonster.cpp">
+      <Filter>04.Object\Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CMissile.cpp">
+      <Filter>04.Object\Missile</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Client.rc">
+      <Filter>Default\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+    <Image Include="Client.ico">
+      <Filter>Default\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
