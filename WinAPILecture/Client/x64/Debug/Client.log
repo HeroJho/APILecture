@@ -1,4 +1,34 @@
-﻿  CMissile.cpp
+﻿  CCore.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CKeyMgr.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CMissile.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CMonster.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CObject.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CPathMgr.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\CPathMgr.cpp(16,36): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   CPlayer.cpp
-  LINK : C:\Users\thehe\source\repos\WinAPILecture\x64\Debug\Client.exe을(를) 찾을 수 없거나 마지막 증분 링크에 의해 빌드되지 않았습니다. 전체 링크를 수행하고 있습니다.
-  Client.vcxproj -> C:\Users\thehe\source\repos\WinAPILecture\x64\Debug\Client.exe
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CRes.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CResMgr.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CScene.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CSceneMgr.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CSound.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CTexture.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  CTimeMgr.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  main.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  Scene_Start.cpp
+C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\pch.h(22,38): warning C4081: 'newline'이(가) 있어야 하는데 ';'이(가) 있습니다.
+  Client.vcxproj -> C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Output\bin_debug\Client.exe

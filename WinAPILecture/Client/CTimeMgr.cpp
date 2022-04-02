@@ -36,12 +36,16 @@ void CTimeMgr::update()
 	// 프레임간 시간 = 이전 프레임의 카운팅과 현재 프레임 카운팅 차이  / 초당 카운팅 가능 횟수
 	m_dDT = (double)(m_llCurCount.QuadPart - m_llPreCount.QuadPart) / (double)m_llFrequency.QuadPart;
 	
+	m_llPreCount = m_llCurCount;
+
 	// m_dDT를 역수하면 초당 프레임이 나온다.
 	// 하지만 이렇게 프레임을 구하면 불안전하다. >> 직접 Count를 세는게 더 좋은 방법
 	//   ㄴ 1프레임 돌 때마다 초당 프레임이 달라지니깐
+	// >> render();
+}
 
-	m_llPreCount = m_llCurCount;
-
+void CTimeMgr::render()
+{
 	++m_iCallCount;
 	m_dAcc += m_dDT; // DT 누적
 	if (m_dAcc >= 1.)
@@ -53,6 +57,6 @@ void CTimeMgr::update()
 		wchar_t szBuffer[255] = {};
 		swprintf_s(szBuffer, L"FPS : %d,	DT : %lf", m_iFPS, m_dDT);
 		SetWindowText(CCore::GetInst()->GetMainHwnd(), szBuffer);
-		
+
 	}
 }

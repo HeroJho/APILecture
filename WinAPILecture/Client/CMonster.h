@@ -1,6 +1,7 @@
 #pragma once
 #include "CObject.h"
 
+class CTexture;
 
 class CMonster :
     public CObject
@@ -11,6 +12,8 @@ private:
     float   m_fMaxDistance;
     int     m_iDir;             // 진행 방향
 
+private:
+    CTexture* m_pTex;
 
 
 public:
@@ -21,6 +24,7 @@ public:
 
 public:
     virtual void update();
+    virtual void render(HDC _dc);
 
 public:
     CMonster();

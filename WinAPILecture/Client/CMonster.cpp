@@ -3,12 +3,18 @@
 
 #include "CTimeMgr.h"
 
+#include "CResMgr.h"
+#include "CTexture.h"
+
 CMonster::CMonster()
 	: m_vCenterPos(Vec2(0.f, 0.f))
 	, m_fSpeed(100.f)
 	, m_fMaxDistance(50.f)
 	, m_iDir(1)
+	, m_pTex(nullptr)
 {
+	// Texture 로딩하기
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"MonsterTex", L"texture\\Monster.bmp");
 }
 
 CMonster::~CMonster()
@@ -35,4 +41,30 @@ void CMonster::update()
 	}
 
 	SetPos(vCurPos);
+}
+
+void CMonster::render(HDC _dc)
+{
+	// 그림의 크기에 따라 좌상단 위치에서 그린다
+	// 화면 왼쪽으로 나가면 음수값이 나올 수 있으니 int로 캐스팅
+	int iWidth = (int)m_pTex->Width();
+	int iHeight = (int)m_pTex->Height();
+
+	Vec2 vPos = GetPos();
+
+	//BitBlt(_dc 
+	//	, int(vPos.x - (float)(iWidth / 2))
+	//	, int(vPos.y - (float)(iHeight / 2))
+	//	, iWidth, iHeight
+	//	, m_pTex->GetDC()
+	//	, 0, 0, SRCCOPY);
+
+	// (255, 0, 255) 마젠타 색상은 빼고 복사해줘
+	TransparentBlt(_dc
+		, int(vPos.x - (float)(iWidth / 2))
+		, int(vPos.y - (float)(iHeight / 2))
+		, iWidth, iHeight
+		, m_pTex->GetDC()
+		, 0, 0, iWidth, iHeight
+		, RGB(255, 0, 255));
 }

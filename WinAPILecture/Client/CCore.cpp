@@ -4,8 +4,7 @@
 #include "CTimeMgr.h"
 #include "CSceneMgr.h"
 #include "CKeyMgr.h"
-
-#include "CObject.h"
+#include "CPathMgr.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -50,10 +49,10 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 
 	// Mnanager 초기화
+	CPathMgr::GetInst()->init();
 	CTimeMgr::GetInst()->init();
 	CKeyMgr::GetInst()->init();
 	CSceneMgr::GetInst()->init();
-
 
 	return S_OK;
 }
@@ -72,10 +71,11 @@ void CCore::progress()
 
 	CSceneMgr::GetInst()->render(m_memDC);
 
-
 	// 그린 종이를 윈도우 종이에 복사
 	// 이처럼 픽셀을 그리는 단순 작업이 엄청 많음 >> cpu가 하는게 아니라 Dir가면 GPU가 하도록 함
 	BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y
 		, m_memDC, 0, 0, SRCCOPY);
+
+	CTimeMgr::GetInst()->render();	
 }
 

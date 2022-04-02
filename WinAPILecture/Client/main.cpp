@@ -25,6 +25,14 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+    // 메모리 릭(누수) 체크
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    
+    // 인자에 릭 난 번호 넣으면 break 건다 >> 호출스택으로 추격
+    // 릭날때만 사용하고 그 외에는 주석처리 잘 하기
+    // _CrtSetBreakAlloc(215); 
+
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 

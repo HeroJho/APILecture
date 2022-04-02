@@ -55,6 +55,21 @@
     <Filter Include="04.Object\Missile">
       <UniqueIdentifier>{55d2546a-679d-4448-a32d-b9e26411d3f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="6.Resource">
+      <UniqueIdentifier>{f3ea0e0f-3e5c-42a8-b1a3-128b82643b68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="6.Resource\Texture">
+      <UniqueIdentifier>{8b9d2ce8-95e2-43b0-927d-13571804ae09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="6.Resource\Sound">
+      <UniqueIdentifier>{27a10901-8a37-462c-909d-973d18c5cc4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Manager\PathMgr">
+      <UniqueIdentifier>{20540a0a-5a00-4a57-a175-3fc9be627890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Manager\ResMgr">
+      <UniqueIdentifier>{40c44eea-5caf-497a-bcf2-d21ea1a436bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -106,6 +121,21 @@
     <ClInclude Include="CMissile.h">
       <Filter>04.Object\Missile</Filter>
     </ClInclude>
+    <ClInclude Include="CRes.h">
+      <Filter>6.Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="CTexture.h">
+      <Filter>6.Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>6.Resource\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="CPathMgr.h">
+      <Filter>03.Manager\PathMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CResMgr.h">
+      <Filter>03.Manager\ResMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -138,6 +168,21 @@
     </ClCompile>
     <ClCompile Include="CMissile.cpp">
       <Filter>04.Object\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="CRes.cpp">
+      <Filter>6.Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="CTexture.cpp">
+      <Filter>6.Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>6.Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="CPathMgr.cpp">
+      <Filter>03.Manager\PathMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CResMgr.cpp">
+      <Filter>03.Manager\ResMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,7 @@ class CObject;
 class CScene
 {
 private:
+	// CObj¿« ∫§≈Õ∞° END∞≥
 	vector<CObject*> m_arrObj[(UINT)GROUP_TYPE::END];
 	wstring			m_strName;
 
