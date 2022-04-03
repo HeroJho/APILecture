@@ -13,7 +13,7 @@ void CPathMgr::init()
 {
 	GetCurrentDirectory(255, m_szContentPath); // 현재 실행파일이 있는 경로를 가져온다
 	
-	int iLen = wcslen(m_szContentPath);
+	int iLen = (int)wcslen(m_szContentPath);
 
 	// 상위 폴더로
 	for (int i = iLen - 1; 0 <= i; --i)

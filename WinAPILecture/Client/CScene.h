@@ -14,6 +14,7 @@ public:
 	const wstring& GetName() { return m_strName; }
 	
 	void update();
+	void finalupdate();
 	void render(HDC _dc);
 
 	virtual void Enter() = 0;	// 순수 가상함수
@@ -24,6 +25,8 @@ public:	// 헤더에서 구현한 함수는 Inline
 	{
 		m_arrObj[(UINT)_eType].push_back(_pObj);
 	}
+
+	const vector<CObject*>& GetGroupObject(GROUP_TYPE _eType) { return m_arrObj[(UINT)_eType]; }
 
 public:
 	CScene();

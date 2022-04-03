@@ -6,6 +6,8 @@
 #include "CResMgr.h"
 #include "CTexture.h"
 
+#include "CCollider.h"
+
 CMonster::CMonster()
 	: m_vCenterPos(Vec2(0.f, 0.f))
 	, m_fSpeed(100.f)
@@ -15,6 +17,10 @@ CMonster::CMonster()
 {
 	// Texture 로딩하기
 	m_pTex = CResMgr::GetInst()->LoadTexture(L"MonsterTex", L"texture\\Monster.bmp");
+
+	CreateCollider();
+	GetCollider()->SetOffsetPos(Vec2(0.f, 0.f));
+	GetCollider()->SetScale(Vec2(30.f, 30.f));
 }
 
 CMonster::~CMonster()
@@ -67,4 +73,6 @@ void CMonster::render(HDC _dc)
 		, m_pTex->GetDC()
 		, 0, 0, iWidth, iHeight
 		, RGB(255, 0, 255));
+
+	component_render(_dc);
 }

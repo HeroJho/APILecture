@@ -14,6 +14,8 @@ CMissile::CMissile()
 	m_pTex = CResMgr::GetInst()->LoadTexture(L"MissileTex", L"texture\\Missile.bmp");
 
 	m_vDir.Normalize();	// ∫§≈Õ ¡§±‘»≠
+
+	CreateCollider();
 }
 
 CMissile::~CMissile()

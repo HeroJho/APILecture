@@ -34,6 +34,10 @@ void CSceneMgr::init()
 void CSceneMgr::update()
 {
 	m_pCurScene->update();
+
+	// 내가 신경 안 써도 돌아가는 내부 로직 (Collider같은)
+	// render전에 처리되기 때문에 update이후 finalupdate가 처리된 상태를 항상 보게된다!
+	m_pCurScene->finalupdate();
 }
 
 void CSceneMgr::render(HDC _dc)

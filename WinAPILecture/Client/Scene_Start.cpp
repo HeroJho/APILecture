@@ -6,6 +6,7 @@
 #include "CMonster.h"
 
 #include "CCore.h"
+#include "CCollisionMgr.h"
 
 void Scene_Start::Enter()
 {
@@ -21,7 +22,7 @@ Scene_Start::Scene_Start()
 	CObject* pObj = new CPlayer();
 	pObj->SetPos(Vec2(640.f, 384.f));
 	pObj->SetScale(Vec2(100.f, 100.f));
-	AddObject(pObj, GROUP_TYPE::DEFAULT);
+	AddObject(pObj, GROUP_TYPE::PLAYER);
 
 	// Monster 배치
 	int iMonCount = 10;
@@ -40,11 +41,17 @@ Scene_Start::Scene_Start()
 		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
 		pMonsterObj->SetMoveDistance(fMoveDist);
 		pMonsterObj->SetScale(Vec2(fObjScale, fObjScale));
-		AddObject(pMonsterObj, GROUP_TYPE::DEFAULT);
+		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
 	}
+
+	// 충돌 지정 >> 모든 오브젝트마다 충돌 체크하면 경우의 수가 너무 많아진다
+	// 설정한 그룹별로 체크한다!
+	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
 }
 
 Scene_Start::~Scene_Start()
 {
-	
+	// 씬이 종료하면 그룹별 충돌 설정은 초기화!
+	// 다음씬에서 충돌 관계가 바뀔 수도 있으니
+	CCollisionMgr::GetInst()->Reset();
 }

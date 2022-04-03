@@ -5,6 +5,7 @@
 #include "CSceneMgr.h"
 #include "CKeyMgr.h"
 #include "CPathMgr.h"
+#include "CCollisionMgr.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -14,6 +15,8 @@ CCore::CCore()
 	, m_hDC(0)
 	, m_hBit(0)
 	, m_memDC(0)
+	, m_arrBrush{}
+	, m_arrPen{}
 {
 
 }
@@ -24,6 +27,9 @@ CCore::~CCore()
 
 	DeleteDC(m_memDC);
 	DeleteObject(m_hBit);
+
+	for (int i = 0; i < (UINT)PEN_TYPE::END; ++i)
+		DeleteObject(m_arrPen[i]);
 }
 
 int CCore::init(HWND _hWnd, POINT _ptResolution)
@@ -47,6 +53,8 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 	HBITMAP hOldBit = (HBITMAP)SelectObject(m_memDC, m_hBit);  // 도구를 주면 이전 도구를 준다
 	DeleteObject(hOldBit);		// 1픽셀 디폴트 삭제
 
+	// 자주 사용할 펜, 브러쉬 생성
+	CreateBrushPen();
 
 	// Mnanager 초기화
 	CPathMgr::GetInst()->init();
@@ -63,7 +71,9 @@ void CCore::progress()
 	// Manager Update
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
+
 	CSceneMgr::GetInst()->update();
+	CCollisionMgr::GetInst()->update(); //충돌처리하고 렌더링
 
 	// ===Rendering===
 	// 화면 Clear
@@ -77,5 +87,17 @@ void CCore::progress()
 		, m_memDC, 0, 0, SRCCOPY);
 
 	CTimeMgr::GetInst()->render();	
+}
+
+void CCore::CreateBrushPen()
+{
+	// 윈도우에서도 자주 쓰는건 미리 만들어서 관리해주겠다 >> delete필요 없다
+	// hollow brush
+	m_arrBrush[(UINT)BRUSH_TYPE::HOLLOW] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
+	
+	// red blue green pen
+	m_arrPen[(UINT)PEN_TYPE::RED] =		CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+	m_arrPen[(UINT)PEN_TYPE::GREEN] =	CreatePen(PS_SOLID, 1, RGB(0, 255, 0));
+	m_arrPen[(UINT)PEN_TYPE::BLUE] =	CreatePen(PS_SOLID, 1, RGB(0, 0, 255));
 }
 
