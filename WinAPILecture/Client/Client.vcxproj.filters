@@ -82,6 +82,18 @@
     <Filter Include="Engine\03.Manager\CollisionMgr">
       <UniqueIdentifier>{b09e36bb-5410-4575-863d-59f13d4ea039}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manager\EvenMgr">
+      <UniqueIdentifier>{0e8e1540-a4eb-460d-9363-dc85285ea175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Animator">
+      <UniqueIdentifier>{f334d886-e043-465c-974f-badf35e7b375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Animator\Animation">
+      <UniqueIdentifier>{9e0500dd-5749-4899-a296-f076ca08a91c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\07.Component\Collider">
+      <UniqueIdentifier>{f1c0cbee-298a-4240-a85b-a4fe672a514d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -148,14 +160,29 @@
     <ClInclude Include="CResMgr.h">
       <Filter>Engine\03.Manager\ResMgr</Filter>
     </ClInclude>
-    <ClInclude Include="CCollider.h">
-      <Filter>Engine\07.Component</Filter>
-    </ClInclude>
     <ClInclude Include="SelectGDI.h">
       <Filter>Engine\08.Module</Filter>
     </ClInclude>
     <ClInclude Include="CCollisionMgr.h">
       <Filter>Engine\03.Manager\CollisionMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CEvenMgr.h">
+      <Filter>Engine\03.Manager\EvenMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
+      <Filter>Engine\01.Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CScene_Tool.h">
+      <Filter>Engine\05.Scene\Scene_Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimator.h">
+      <Filter>Engine\07.Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider.h">
+      <Filter>Engine\07.Component\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CAnimation.h">
+      <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -205,14 +232,29 @@
     <ClCompile Include="CResMgr.cpp">
       <Filter>Engine\03.Manager\ResMgr</Filter>
     </ClCompile>
-    <ClCompile Include="CCollider.cpp">
-      <Filter>Engine\07.Component</Filter>
-    </ClCompile>
     <ClCompile Include="SelectGDI.cpp">
       <Filter>Engine\08.Module</Filter>
     </ClCompile>
     <ClCompile Include="CCollisionMgr.cpp">
       <Filter>Engine\03.Manager\CollisionMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CEvenMgr.cpp">
+      <Filter>Engine\03.Manager\EvenMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="func.cpp">
+      <Filter>Engine\01.Header</Filter>
+    </ClCompile>
+    <ClCompile Include="CScene_Tool.cpp">
+      <Filter>Engine\05.Scene\Scene_Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimator.cpp">
+      <Filter>Engine\07.Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="CCollider.cpp">
+      <Filter>Engine\07.Component\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="CAnimation.cpp">
+      <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

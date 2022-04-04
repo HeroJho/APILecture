@@ -14,6 +14,9 @@
 #define fDT CTimeMgr::GetInst()->GetfDT()
 #define DT CTimeMgr::GetInst()->GetDT()
 
+#define CLONE(type) type* Clone() {return new type(*this);}
+
+
 #define KEY_CHECK(key, state) CKeyMgr::GetInst()->GetKeyState(key) == state
 #define KEY_HOLD(key) KEY_CHECK(key, KEY_STATE::HOLD)
 #define KEY_TAP(key) KEY_CHECK(key, KEY_STATE::TAP)
@@ -27,8 +30,9 @@ enum class GROUP_TYPE
 	DEFAULT,
 
 	PLAYER,
-	MISSILE,
 	MONSTER,
+	PROJ_PLAYER,
+	PROJ_MONSTER,
 
 
 	END = 32
@@ -55,5 +59,16 @@ enum class PEN_TYPE
 	RED,
 	GREEN,
 	BLUE,
+	END
+};
+
+// 지연처리할 상황들
+enum class EVENT_TYPE
+{
+	CREATE_OBJECT,
+	DELETE_OBJECT,
+	SCENE_CHANGE,
+	
+	
 	END
 };

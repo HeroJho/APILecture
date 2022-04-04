@@ -30,6 +30,8 @@ CMonster::~CMonster()
 
 void CMonster::update()
 { 
+	return;
+
 	Vec2 vCurPos = GetPos();
 
 	// 진행 바향으로 시간당 m_fSpeed 만큼 이동
@@ -75,4 +77,15 @@ void CMonster::render(HDC _dc)
 		, RGB(255, 0, 255));
 
 	component_render(_dc);
+}
+
+
+void CMonster::OnCollisionEnter(CCollider* _pOther)
+{
+	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->GetName() == L"Missile_Player")
+	{
+		DeleteObject(this);
+	}
 }

@@ -6,6 +6,7 @@
 #include "CKeyMgr.h"
 #include "CPathMgr.h"
 #include "CCollisionMgr.h"
+#include "CEvenMgr.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -68,17 +69,27 @@ int CCore::init(HWND _hWnd, POINT _ptResolution)
 
 void CCore::progress()
 {
+	// =============
 	// Manager Update
+	// =============
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
 
+
+	// ============
+	// Scene Update
+	// ============
 	CSceneMgr::GetInst()->update();
-	CCollisionMgr::GetInst()->update(); //충돌처리하고 렌더링
 
-	// ===Rendering===
-	// 화면 Clear
-	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1);
+	//충돌처리하고 렌더링
+	CCollisionMgr::GetInst()->update(); 
 
+
+	// =========
+	// Rendering
+	// =========
+	Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.y + 1); // 화면 Clear
+	
 	CSceneMgr::GetInst()->render(m_memDC);
 
 	// 그린 종이를 윈도우 종이에 복사
@@ -87,6 +98,12 @@ void CCore::progress()
 		, m_memDC, 0, 0, SRCCOPY);
 
 	CTimeMgr::GetInst()->render();	
+
+
+	// ==============
+	// Event 지연처리
+	// ==============
+	CEvenMgr::GetInst()->update();
 }
 
 void CCore::CreateBrushPen()

@@ -7,7 +7,7 @@ class CSceneMgr
 	SINGLE(CSceneMgr);
 private:
 	CScene*		m_arrScene[(UINT)SCENE_TYPE::END];	// 모든 씬 목록
-	CScene*		m_pCurScene;								// 현재 씬
+	CScene*		m_pCurScene;						// 현재 씬
 
 public:
 	void init();
@@ -16,5 +16,10 @@ public:
 
 public:
 	CScene* GetCurScene() { return m_pCurScene; }
+
+private:
+	// 호출 시점 중요! EventMgr에서만 호출 가능!
+	void ChangeScene(SCENE_TYPE _eNext);
+	friend class CEvenMgr;
 };
 

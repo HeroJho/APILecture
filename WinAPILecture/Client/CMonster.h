@@ -22,10 +22,14 @@ public:
     void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
     void SetCenterPos(Vec2 _vPos) { m_vCenterPos = _vPos; }
 
+
+    virtual void OnCollisionEnter(CCollider* _pOther);
+
 public:
     virtual void update();
     virtual void render(HDC _dc);
 
+    CLONE(CMonster)
 public:
     CMonster();
     ~CMonster();

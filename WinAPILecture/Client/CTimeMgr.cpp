@@ -42,6 +42,12 @@ void CTimeMgr::update()
 	// 하지만 이렇게 프레임을 구하면 불안전하다. >> 직접 Count를 세는게 더 좋은 방법
 	//   ㄴ 1프레임 돌 때마다 초당 프레임이 달라지니깐
 	// >> render();
+
+#ifdef _DEBUG
+	// 디버그 모드일 때(중단점 걸으면) 
+	if (m_dDT > (1. / 60.))
+		m_dDT = (1. / 60.);
+#endif
 }
 
 void CTimeMgr::render()

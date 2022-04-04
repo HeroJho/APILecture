@@ -20,7 +20,7 @@ public:
 	// ResMgr에서만 생성되도록 private하고 friend한다!!
 private:
 	CTexture();
-	~CTexture();
+	virtual ~CTexture();
 
 	friend class CResMgr;
 };

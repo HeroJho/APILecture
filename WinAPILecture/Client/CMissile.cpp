@@ -5,6 +5,7 @@
 
 #include "CResMgr.h"
 #include "CTexture.h"
+#include "CCollider.h"
 
 CMissile::CMissile()
 	: m_fTheta (0.f)
@@ -16,6 +17,7 @@ CMissile::CMissile()
 	m_vDir.Normalize();	// º¤ÅÍ Á¤±ÔÈ­
 
 	CreateCollider();
+	GetCollider()->SetScale(Vec2(15.f, 15.f));
 }
 
 CMissile::~CMissile()
@@ -60,4 +62,18 @@ void CMissile::render(HDC _dc)
 		, m_pTex->GetDC()
 		, 0, 0, iWidth, iHeight
 		, RGB(255, 0, 255));
+
+	component_render(_dc);
+}
+
+
+
+void CMissile::OnCollisionEnter(CCollider* _pOther)
+{
+	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->GetName() == L"Monster")
+	{
+		DeleteObject(this);
+	}
 }

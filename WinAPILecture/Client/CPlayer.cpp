@@ -12,17 +12,22 @@
 #include "CResMgr.h"
 #include "CTexture.h"
 #include "CCollider.h"
+#include "CAnimator.h"
 
 CPlayer::CPlayer()
 	:m_pTex(nullptr)
 {
 	// Texture 로딩하기
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Player.bmp");
+	// m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Player.bmp");
 	
 
 	CreateCollider();
 	GetCollider()->SetOffsetPos(Vec2(0.f, 0.f));
 	GetCollider()->SetScale(Vec2(35.f, 45.f));
+
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
+	CreateAnimator();
+	GetAnimator()->CreateAnimation(L"WALK_DOWN" , m_pTex, Vec2(0.f, 160.f), Vec2(16.f, 32.f), Vec2(16.f, 0.f), 1.f, 9);
 }
 
 CPlayer::~CPlayer()
@@ -95,23 +100,13 @@ void CPlayer::CreateMissile()
 	vMissilePos.y -= GetScale().y / 2.f;
 
 	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-	CMissile* pMissile = nullptr;
-	for (float i = 1; i <= 3; ++i)
-	{
-		// 3,1 2,2 1,3
-		pMissile = new CMissile;
-		pMissile->SetPos(vMissilePos);
-		pMissile->SetScale(Vec2(25.f, 25.f));
-		pMissile->SetDir(Vec2(3.f - i, i * -1));
-		pCurScene->AddObject(pMissile, GROUP_TYPE::DEFAULT);
+	CMissile* pMissile = new CMissile;
+	pMissile->SetName(L"Missile_Player");
+	pMissile->SetPos(vMissilePos);
+	pMissile->SetScale(Vec2(25.f, 25.f));
+	pMissile->SetDir(Vec2(0.f, -1.f));
 
-		pMissile = new CMissile;
-		pMissile->SetPos(vMissilePos);
-		pMissile->SetScale(Vec2(25.f, 25.f));
-		pMissile->SetDir(Vec2((3.f - i) * -1, i * -1));
-		pCurScene->AddObject(pMissile, GROUP_TYPE::DEFAULT);
-	}
-
+	CreateObject(pMissile, GROUP_TYPE::PROJ_PLAYER);
 }
 
 
