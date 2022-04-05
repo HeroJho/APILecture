@@ -27,6 +27,7 @@ void CScene::update()
 	{
 		for (size_t j = 0; j < m_arrObj[i].size(); ++j)
 		{
+			// 죽음 예약이면 업데이트 x
 			if (!m_arrObj[i][j]->IsDead())
 			{
 				m_arrObj[i][j]->update();
@@ -42,6 +43,7 @@ void CScene::finalupdate()
 	{
 		for (size_t j = 0; j < m_arrObj[i].size(); ++j)
 		{
+			// 죽음 예약도 마지막까지 콜리젼 처리 >> 바로 사라지면 콜리전 exit처리 못해줌
 			m_arrObj[i][j]->finalupdate();
 		}
 	}
@@ -55,6 +57,7 @@ void CScene::render(HDC _dc)
 
 		for (; iter != m_arrObj[i].end();)
 		{
+			// 랜더는 모든 고정의 마무리이기 때문에 이때 씬에서 빼준다
 			if (!(*iter)->IsDead())
 			{
 				(*iter)->render(_dc);

@@ -13,9 +13,9 @@
 #include "CTexture.h"
 #include "CCollider.h"
 #include "CAnimator.h"
+#include "CAnimation.h"
 
 CPlayer::CPlayer()
-	:m_pTex(nullptr)
 {
 	// Texture 로딩하기
 	// m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Player.bmp");
@@ -25,9 +25,15 @@ CPlayer::CPlayer()
 	GetCollider()->SetOffsetPos(Vec2(0.f, 0.f));
 	GetCollider()->SetScale(Vec2(35.f, 45.f));
 
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
+	CTexture* m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
 	CreateAnimator();
-	GetAnimator()->CreateAnimation(L"WALK_DOWN" , m_pTex, Vec2(0.f, 160.f), Vec2(16.f, 32.f), Vec2(16.f, 0.f), 1.f, 9);
+	GetAnimator()->CreateAnimation(L"WALK_DOWN" , m_pTex, Vec2(0.f, 0.f), Vec2(16.f, 32.f), Vec2(16.f, 0.f), 0.1f, 9);
+	GetAnimator()->Play(L"WALK_DOWN", true);
+
+	// 애니 오프셋 설정
+	CAnimation* pAnim = GetAnimator()->FindAnimation(L"WALK_DOWN");
+	for (int i = 0; i < pAnim->GetMaxFrame(); ++i)
+		pAnim->GetFrame(i).vOffset = Vec2(0.f, -10.f);
 }
 
 CPlayer::~CPlayer()
@@ -63,33 +69,12 @@ void CPlayer::update()
 	}
 
 	SetPos(vPos);
+
+	GetAnimator()->update();
 }
 
 void CPlayer::render(HDC _dc)
 {
-	// 그림의 크기에 따라 좌상단 위치에서 그린다
-	// 화면 왼쪽으로 나가면 음수값이 나올 수 있으니 int로 캐스팅
-	int iWidth = (int)m_pTex->Width();
-	int iHeight = (int)m_pTex->Height();
-
-	Vec2 vPos = GetPos();
-	
-	//BitBlt(_dc 
-	//	, int(vPos.x - (float)(iWidth / 2))
-	//	, int(vPos.y - (float)(iHeight / 2))
-	//	, iWidth, iHeight
-	//	, m_pTex->GetDC()
-	//	, 0, 0, SRCCOPY);
-
-	// (255, 0, 255) 마젠타 색상은 빼고 복사해줘
-	TransparentBlt(_dc
-		, int(vPos.x - (float)(iWidth / 2))
-		, int(vPos.y - (float)(iHeight / 2))
-		, iWidth, iHeight
-		, m_pTex->GetDC()
-		, 0, 0, iWidth, iHeight
-		, RGB(255, 0, 255));
-
 	// 컴포넌트 랜더(collider, etc...)가 있는 경우 랜더 
 	component_render(_dc);
 }

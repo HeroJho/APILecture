@@ -94,6 +94,9 @@
     <Filter Include="Engine\07.Component\Collider">
       <UniqueIdentifier>{f1c0cbee-298a-4240-a85b-a4fe672a514d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03.Manager\CameraMgr">
+      <UniqueIdentifier>{8668ecec-add1-489b-b16e-5d4dcc7d0de8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -184,6 +187,9 @@
     <ClInclude Include="CAnimation.h">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="CCameraMgr.h">
+      <Filter>Engine\03.Manager\CameraMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -255,6 +261,9 @@
     </ClCompile>
     <ClCompile Include="CAnimation.cpp">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="CCameraMgr.cpp">
+      <Filter>Engine\03.Manager\CameraMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
