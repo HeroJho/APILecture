@@ -60,17 +60,12 @@ void CMonster::render(HDC _dc)
 
 	Vec2 vPos = GetPos();
 
-	//BitBlt(_dc 
-	//	, int(vPos.x - (float)(iWidth / 2))
-	//	, int(vPos.y - (float)(iHeight / 2))
-	//	, iWidth, iHeight
-	//	, m_pTex->GetDC()
-	//	, 0, 0, SRCCOPY);
+	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(vPos);
 
 	// (255, 0, 255) ¸¶Á¨Å¸ »ö»óÀº »©°í º¹»çÇØÁà
 	TransparentBlt(_dc
-		, int(vPos.x - (float)(iWidth / 2))
-		, int(vPos.y - (float)(iHeight / 2))
+		, int(vRenderPos.x - (float)(iWidth / 2))
+		, int(vRenderPos.y - (float)(iHeight / 2))
 		, iWidth, iHeight
 		, m_pTex->GetDC()
 		, 0, 0, iWidth, iHeight

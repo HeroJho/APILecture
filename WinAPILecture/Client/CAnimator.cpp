@@ -10,6 +10,14 @@ CAnimator::CAnimator()
 {
 }
 
+CAnimator::CAnimator(const CAnimator& _origin)
+	: m_pCurAnim(nullptr)
+	, m_pOwner(nullptr)
+	, m_bRepeat(false)
+{
+	// CAnim 복사 생성자 해결하기
+}
+
 CAnimator::~CAnimator()
 {
 	Safe_Delete_Map(m_mapAnim);

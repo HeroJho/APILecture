@@ -94,8 +94,11 @@
     <Filter Include="Engine\07.Component\Collider">
       <UniqueIdentifier>{f1c0cbee-298a-4240-a85b-a4fe672a514d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03.Manager\CameraMgr">
+    <Filter Include="Engine\03.Manager\Camera">
       <UniqueIdentifier>{8668ecec-add1-489b-b16e-5d4dcc7d0de8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Tile">
+      <UniqueIdentifier>{c8a33caa-fc04-4aac-87e3-b0e8dc6d4bde}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -187,8 +190,11 @@
     <ClInclude Include="CAnimation.h">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="CCameraMgr.h">
-      <Filter>Engine\03.Manager\CameraMgr</Filter>
+    <ClInclude Include="CCamera.h">
+      <Filter>Engine\03.Manager\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CTile.h">
+      <Filter>Engine\04.Object\Tile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -262,8 +268,11 @@
     <ClCompile Include="CAnimation.cpp">
       <Filter>Engine\07.Component\Animator\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="CCameraMgr.cpp">
-      <Filter>Engine\03.Manager\CameraMgr</Filter>
+    <ClCompile Include="CCamera.cpp">
+      <Filter>Engine\03.Manager\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CTile.cpp">
+      <Filter>Engine\04.Object\Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

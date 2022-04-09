@@ -1,5 +1,4 @@
-﻿  CAnimator.cpp
-C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\CAnimation.h(37,20): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  CPlayer.cpp
-C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Client\CAnimation.h(37,20): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Client.vcxproj -> C:\Users\thehe\OneDrive\바탕 화면\API\WinAPILecture\Output\bin_debug\Client.exe
+﻿cl : 명령줄 warning D9030: '/Yc'이(가) 다중 처리와 호환되지 않습니다. /MP 스위치를 무시합니다.
+  CScene_Tool.cpp
+  main.cpp
+  Client.vcxproj -> C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Output\bin_debug\Client.exe

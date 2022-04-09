@@ -7,6 +7,7 @@
 #include "CPathMgr.h"
 #include "CCollisionMgr.h"
 #include "CEvenMgr.h"
+#include "CCamera.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -74,6 +75,7 @@ void CCore::progress()
 	// =============
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
+	CCamera::GetInst()->update();
 
 
 	// ============

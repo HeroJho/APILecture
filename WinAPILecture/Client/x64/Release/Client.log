@@ -1,8 +1,52 @@
-﻿  CCore.cpp
+﻿  CAnimation.cpp
+  CAnimator.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CAnimation.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CCamera.cpp
+  CCollider.cpp
+  CCollisionMgr.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CAnimator.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CCamera.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CCollisionMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CCollider.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CCore.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CCore.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CEvenMgr.cpp
+  CKeyMgr.cpp
+  CMissile.cpp
+  CMonster.cpp
+  CObject.cpp
   CPathMgr.cpp
-  코드를 생성하고 있습니다.
-  14 of 240 functions ( 5.8%) were compiled, the rest were copied from previous compilation.
-    6 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  Client.vcxproj -> C:\Users\thehe\source\repos\WinAPILecture\Output\bin\Client.exe
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CEvenMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CKeyMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CMonster.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CMissile.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CObject.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CPlayer.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CPathMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CRes.cpp
+  CResMgr.cpp
+  CScene.cpp
+  CSceneMgr.cpp
+  CScene_Tool.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CRes.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CScene.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CSceneMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CResMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CPlayer.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CScene_Tool.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  CSound.cpp
+  CTexture.cpp
+  CTile.cpp
+  CTimeMgr.cpp
+  func.cpp
+  main.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CTexture.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CSound.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\main.cpp(4,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\func.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CTile.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\CTimeMgr.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+  Scene_Start.cpp
+  SelectGDI.cpp
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\Scene_Start.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
+C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Client\SelectGDI.cpp(1,10): fatal error C1083: 미리 컴파일된 헤더 파일을 열 수 없습니다. 'x64\Release\Client.pch': No such file or directory
