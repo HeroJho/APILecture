@@ -48,7 +48,7 @@ private:
 
 public:
 	virtual void update() = 0;
-	virtual void finalupdate() final; // 자식이 상속되지 않게 해야한다! 다른 프로그래머가 자식에 오버라이딩 못하게 final키워드로 막는다
+	virtual void finalupdate(); // final; // 자식이 상속되지 않게 해야한다! 다른 프로그래머가 자식에 오버라이딩 못하게 final키워드로 막는다
 	virtual void render(HDC _dc);
 
 	void component_render(HDC _dc);

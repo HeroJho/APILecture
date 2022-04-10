@@ -40,6 +40,7 @@ enum class GROUP_TYPE
 	PROJ_MONSTER,
 
 
+	UI = 31,			// UI는 가장 앞에 그려져야 한다!
 	END = 32
 };
 

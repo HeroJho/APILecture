@@ -83,7 +83,7 @@ void CCore::progress()
 	// ============
 	CSceneMgr::GetInst()->update();
 
-	//충돌처리하고 렌더링
+	// 충돌처리(랜더링 전에)
 	CCollisionMgr::GetInst()->update(); 
 
 

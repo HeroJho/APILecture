@@ -100,6 +100,12 @@
     <Filter Include="Engine\04.Object\Tile">
       <UniqueIdentifier>{c8a33caa-fc04-4aac-87e3-b0e8dc6d4bde}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04.Object\UI">
+      <UniqueIdentifier>{32380254-17c9-4a0d-9722-676251c6dd9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03.Manager\UIMgr">
+      <UniqueIdentifier>{54d6ae11-17f0-4e9b-85d1-89c414934a05}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -196,6 +202,12 @@
     <ClInclude Include="CTile.h">
       <Filter>Engine\04.Object\Tile</Filter>
     </ClInclude>
+    <ClInclude Include="CUI.h">
+      <Filter>Engine\04.Object\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CUIMgr.h">
+      <Filter>Engine\03.Manager\UIMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -273,6 +285,12 @@
     </ClCompile>
     <ClCompile Include="CTile.cpp">
       <Filter>Engine\04.Object\Tile</Filter>
+    </ClCompile>
+    <ClCompile Include="CUI.cpp">
+      <Filter>Engine\04.Object\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="CUIMgr.cpp">
+      <Filter>Engine\03.Manager\UIMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
