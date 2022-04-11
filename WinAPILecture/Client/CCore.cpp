@@ -8,6 +8,7 @@
 #include "CCollisionMgr.h"
 #include "CEvenMgr.h"
 #include "CCamera.h"
+#include "CUIMgr.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -85,6 +86,10 @@ void CCore::progress()
 
 	// 충돌처리(랜더링 전에)
 	CCollisionMgr::GetInst()->update(); 
+
+	// UI 이벤트 체크
+	CUIMgr::GetInst()->update();
+
 
 
 	// =========

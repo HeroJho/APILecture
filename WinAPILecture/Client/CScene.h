@@ -34,10 +34,11 @@ public:	// 헤더에서 구현한 함수는 Inline
 	const vector<CObject*>& GetGroupObject(GROUP_TYPE _eType) { return m_arrObj[(UINT)_eType]; }
 	void DeleteGroup(GROUP_TYPE _eTarget);
 	void DeleteAll();
-
 	void CreateTile(UINT _iXCount, UINT _iYCount);
 
-public:
+	vector<CObject*>& GetUIGroup() { return m_arrObj[(UINT)GROUP_TYPE::UI]; }
+
+public: 
 	CScene();
 	virtual ~CScene();
 };

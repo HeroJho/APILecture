@@ -106,6 +106,12 @@
     <Filter Include="Engine\03.Manager\UIMgr">
       <UniqueIdentifier>{54d6ae11-17f0-4e9b-85d1-89c414934a05}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04.Object\UI\PanelUI">
+      <UniqueIdentifier>{1dea4fad-7791-4886-bb3c-15af61aca6f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\UI\BtnUI">
+      <UniqueIdentifier>{b3a6c905-7c4a-4ae9-a063-632037cf5225}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -208,6 +214,12 @@
     <ClInclude Include="CUIMgr.h">
       <Filter>Engine\03.Manager\UIMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CPanelUI.h">
+      <Filter>Engine\04.Object\UI\PanelUI</Filter>
+    </ClInclude>
+    <ClInclude Include="CBtnUI.h">
+      <Filter>Engine\04.Object\UI\BtnUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -291,6 +303,12 @@
     </ClCompile>
     <ClCompile Include="CUIMgr.cpp">
       <Filter>Engine\03.Manager\UIMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CPanelUI.cpp">
+      <Filter>Engine\04.Object\UI\PanelUI</Filter>
+    </ClCompile>
+    <ClCompile Include="CBtnUI.cpp">
+      <Filter>Engine\04.Object\UI\BtnUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
