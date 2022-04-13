@@ -82,10 +82,10 @@ void CCore::progress()
 	// ============
 	// Scene Update
 	// ============
-	CSceneMgr::GetInst()->update();
+	CSceneMgr::GetInst()->update();		
 
 	// 충돌처리(랜더링 전에)
-	CCollisionMgr::GetInst()->update(); 
+	CCollisionMgr::GetInst()->update();
 
 	// UI 이벤트 체크
 	CUIMgr::GetInst()->update();
@@ -110,7 +110,7 @@ void CCore::progress()
 	// ==============
 	// Event 지연처리
 	// ==============
-	CEvenMgr::GetInst()->update();
+	CEvenMgr::GetInst()->update();    
 }
 
 void CCore::CreateBrushPen()

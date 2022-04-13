@@ -46,12 +46,6 @@
     <Filter Include="Engine\04.Object">
       <UniqueIdentifier>{85433daf-f78a-4985-aec1-aac365ee43aa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\04.Object\Player">
-      <UniqueIdentifier>{c4e6bcf1-cf34-459d-8540-70a22f20e6b6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\04.Object\Monster">
-      <UniqueIdentifier>{107d61f1-ce52-43d4-9d27-2cf2b904f001}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\04.Object\Missile">
       <UniqueIdentifier>{55d2546a-679d-4448-a32d-b9e26411d3f9}</UniqueIdentifier>
     </Filter>
@@ -112,6 +106,24 @@
     <Filter Include="Engine\04.Object\UI\BtnUI">
       <UniqueIdentifier>{b3a6c905-7c4a-4ae9-a063-632037cf5225}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts">
+      <UniqueIdentifier>{035a9c35-eccf-4ff1-9e50-0ca1410a4be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Creature">
+      <UniqueIdentifier>{0a38bbef-829a-4fe1-a084-3f8a364ac3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Creature\Monster">
+      <UniqueIdentifier>{107d61f1-ce52-43d4-9d27-2cf2b904f001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04.Object\Creature\Player">
+      <UniqueIdentifier>{c4e6bcf1-cf34-459d-8540-70a22f20e6b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Skill">
+      <UniqueIdentifier>{d28d4ce6-4c83-489f-a724-13fd371887a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Mgr">
+      <UniqueIdentifier>{79db160c-6c8c-47c1-b2ee-722172ad5731}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -155,10 +167,10 @@
       <Filter>Engine\05.Scene\Scene_Start</Filter>
     </ClInclude>
     <ClInclude Include="CPlayer.h">
-      <Filter>Engine\04.Object\Player</Filter>
+      <Filter>Engine\04.Object\Creature\Player</Filter>
     </ClInclude>
     <ClInclude Include="CMonster.h">
-      <Filter>Engine\04.Object\Monster</Filter>
+      <Filter>Engine\04.Object\Creature\Monster</Filter>
     </ClInclude>
     <ClInclude Include="CMissile.h">
       <Filter>Engine\04.Object\Missile</Filter>
@@ -220,6 +232,21 @@
     <ClInclude Include="CBtnUI.h">
       <Filter>Engine\04.Object\UI\BtnUI</Filter>
     </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Engine\04.Object\Creature</Filter>
+    </ClInclude>
+    <ClInclude Include="CSkill.h">
+      <Filter>Scripts\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnergyBall.h">
+      <Filter>Scripts\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="CGameMgr.h">
+      <Filter>Scripts\Mgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CSKillMgr.h">
+      <Filter>Scripts\Mgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -245,10 +272,10 @@
       <Filter>Engine\05.Scene\Scene_Start</Filter>
     </ClCompile>
     <ClCompile Include="CPlayer.cpp">
-      <Filter>Engine\04.Object\Player</Filter>
+      <Filter>Engine\04.Object\Creature\Player</Filter>
     </ClCompile>
     <ClCompile Include="CMonster.cpp">
-      <Filter>Engine\04.Object\Monster</Filter>
+      <Filter>Engine\04.Object\Creature\Monster</Filter>
     </ClCompile>
     <ClCompile Include="CMissile.cpp">
       <Filter>Engine\04.Object\Missile</Filter>
@@ -309,6 +336,21 @@
     </ClCompile>
     <ClCompile Include="CBtnUI.cpp">
       <Filter>Engine\04.Object\UI\BtnUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Engine\04.Object\Creature</Filter>
+    </ClCompile>
+    <ClCompile Include="CSkill.cpp">
+      <Filter>Scripts\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnergyBall.cpp">
+      <Filter>Scripts\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="CGameMgr.cpp">
+      <Filter>Scripts\Mgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CSKillMgr.cpp">
+      <Filter>Scripts\Mgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

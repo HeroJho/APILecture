@@ -12,6 +12,9 @@
 #include "CSceneMgr.h"
 #include "CCamera.h"
 
+#include "CGameMgr.h"
+#include "CSKillMgr.h"
+#include "CEnergyBall.h"
 
 Scene_Start::Scene_Start()
 {
@@ -25,28 +28,36 @@ void Scene_Start::update()
 {
 	CScene::update();
 
-	if (KEY_TAP(KEY::ENTER))
-	{
-		ChangeScene(SCENE_TYPE::TOOL);
-	}
+	//if (KEY_TAP(KEY::ENTER))
+	//{
+	//	ChangeScene(SCENE_TYPE::TOOL);
+	//}
 
-	if (KEY_TAP(KEY::LBTN))
-	{
-		Vec2 vLookAt = CCamera::GetInst()->GetRealPos(MOUSE_POS);
-		CCamera::GetInst()->SetLookAt(vLookAt);
-	}
+	//if (KEY_TAP(KEY::LBTN))
+	//{
+	//	Vec2 vLookAt = CCamera::GetInst()->GetRealPos(MOUSE_POS);
+	//	CCamera::GetInst()->SetLookAt(vLookAt);
+	//}
 }
 
 void Scene_Start::Enter()
 {
 	// Player
-	CObject* pObj = new CPlayer();
+	CreatureInfo* pInfo = new CreatureInfo(100, 1, 1);
+	CPlayer* pObj = new CPlayer(pInfo);
+	pObj->SetName(L"Player");
 	pObj->SetPos(Vec2(640.f, 384.f));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
 
 	// 플레이어를 카메라 타겟으로 설정
-	// CCamera::GetInst()->SetTarget(pObj);
+	CCamera::GetInst()->SetTarget(pObj);
+	// 플레이어를 겜매에 등록
+	CGameMgr::GetInst()->SetPlayer(pObj);
+
+	// 에너지볼 스킬 추가
+	CEnergyBall* pEnergyBall = new CEnergyBall(0.1f, 300.f, 200.f);
+	CGameMgr::GetInst()->GetSkillMgr()->AddSkill(pEnergyBall);
 
 	// Monster 배치
 	int iMonCount = 10;
@@ -60,7 +71,8 @@ void Scene_Start::Enter()
 
 	for (int i = 0; i < iMonCount; ++i)
 	{
-		pMonsterObj = new CMonster();
+		pInfo = new CreatureInfo(10, 1, 1);
+		pMonsterObj = new CMonster(pInfo);
 		pMonsterObj->SetName(L"Monster");
 		pMonsterObj->SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 50.f));
 		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());

@@ -1,12 +1,2 @@
-﻿cl : 명령줄 warning D9030: '/Yc'이(가) 다중 처리와 호환되지 않습니다. /MP 스위치를 무시합니다.
-  CCollisionMgr.cpp
-  CCore.cpp
-  CEvenMgr.cpp
-  CPlayer.cpp
-  CScene.cpp
-  CSceneMgr.cpp
-  CScene_Tool.cpp
-  CUI.cpp
-  CUIMgr.cpp
-  Scene_Start.cpp
+﻿  Scene_Start.cpp
   Client.vcxproj -> C:\Users\thehe\OneDrive\BackGround\API\WinAPILecture\Output\bin_debug\Client.exe

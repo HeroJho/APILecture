@@ -8,13 +8,15 @@
 
 #include "CCollider.h"
 
-CMonster::CMonster()
+CMonster::CMonster(CreatureInfo* _sInfo)
 	: m_vCenterPos(Vec2(0.f, 0.f))
 	, m_fSpeed(100.f)
 	, m_fMaxDistance(50.f)
 	, m_iDir(1)
 	, m_pTex(nullptr)
 {
+	m_sInfo = _sInfo;
+
 	// Texture 로딩하기
 	m_pTex = CResMgr::GetInst()->LoadTexture(L"MonsterTex", L"texture\\Monster.bmp");
 
@@ -75,12 +77,23 @@ void CMonster::render(HDC _dc)
 }
 
 
+void CMonster::OnCollision(CCollider* _pOther)
+{
+	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->GetName() == L"Player")
+	{
+		Creature* pCreature = static_cast<Creature*>(pOtherObj);
+		pCreature->Attacked(this);
+	}
+}
+
 void CMonster::OnCollisionEnter(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
 
-	if (pOtherObj->GetName() == L"Missile_Player")
+	/*if (pOtherObj->GetName() == L"Missile_Player")
 	{
 		DeleteObject(this);
-	}
+	}*/
 }

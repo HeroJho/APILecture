@@ -1,25 +1,27 @@
 #pragma once
-#include "CObject.h"
+#include "Creature.h"
 
 class CTexture;
 
 class CPlayer :
-    public CObject
+    public Creature
 {
 private:
 
+   
 
 public:
     virtual void update();
     virtual void render(HDC _dc);
 
 private:
-    void CreateMissile();
+    void SkillUpdate();
+    void CreateMissile(float _vDir);
 
 
     CLONE(CPlayer)
 public:
-    CPlayer();
+    CPlayer(CreatureInfo* _sInfo);
     ~CPlayer();
 };
 

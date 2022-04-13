@@ -6,6 +6,8 @@
 
 #include "CKeyMgr.h"
 #include "CTimeMgr.h"
+#include "CGameMgr.h"
+#include "CSKillMgr.h"
 
 #include "CMissile.h"
 
@@ -15,8 +17,10 @@
 #include "CAnimator.h"
 #include "CAnimation.h"
 
-CPlayer::CPlayer()
+CPlayer::CPlayer(CreatureInfo* _sInfo)
 {
+	m_sInfo = _sInfo;
+
 	// Texture 로딩하기
 	// m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\Player.bmp");
 	
@@ -63,10 +67,7 @@ void CPlayer::update()
 		vPos.x += 200.f * fDT;
 	}
 
-	if (KEY_TAP(KEY::SPACE))
-	{
-		CreateMissile();
-	}
+	SkillUpdate();
 
 	SetPos(vPos);
 
@@ -79,19 +80,10 @@ void CPlayer::render(HDC _dc)
 	component_render(_dc);
 }
 
-void CPlayer::CreateMissile()
+void CPlayer::SkillUpdate()
 {
-	Vec2 vMissilePos = GetPos();
-	vMissilePos.y -= GetScale().y / 2.f;
-
-	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-	CMissile* pMissile = new CMissile;
-	pMissile->SetName(L"Missile_Player");
-	pMissile->SetPos(vMissilePos);
-	pMissile->SetScale(Vec2(25.f, 25.f));
-	pMissile->SetDir(Vec2(0.f, -1.f));
-
-	CreateObject(pMissile, GROUP_TYPE::PROJ_PLAYER);
+	CGameMgr::GetInst()->GetSkillMgr()->update();
 }
+
 
 

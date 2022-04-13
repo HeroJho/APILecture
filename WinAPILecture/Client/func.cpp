@@ -22,6 +22,7 @@ void DeleteObject(CObject* _pObj)
 	evn.lParam = (DWORD_PTR)_pObj;
 
 	CEvenMgr::GetInst()->AddEvent(evn);
+	// 
 }
 
 void ChangeScene(SCENE_TYPE _eNext)

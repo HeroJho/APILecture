@@ -1,10 +1,10 @@
 #pragma once
-#include "CObject.h"
+#include "Creature.h"
 
 class CTexture;
 
 class CMonster :
-    public CObject
+    public Creature
 {
 private:
     Vec2    m_vCenterPos;
@@ -22,8 +22,9 @@ public:
     void SetMoveDistance(float _f) { m_fMaxDistance = _f; }
     void SetCenterPos(Vec2 _vPos) { m_vCenterPos = _vPos; }
 
-
+    virtual void OnCollision(CCollider* _pOther);
     virtual void OnCollisionEnter(CCollider* _pOther);
+    
 
 public:
     virtual void update();
@@ -31,7 +32,7 @@ public:
 
     CLONE(CMonster)
 public:
-    CMonster();
+    CMonster(CreatureInfo* _sInfo);
     ~CMonster();
 };
 

@@ -6,12 +6,19 @@
 #include "CResMgr.h"
 #include "CTexture.h"
 #include "CCollider.h"
+#include "Creature.h"
 
-CMissile::CMissile()
-	: m_fTheta (0.f)
+CMissile::CMissile(Creature* _pOwner, float _fRange, float _fSpeed)
+	: m_pOwner(_pOwner)
+	, m_fSpeed(_fSpeed)
+	, m_fRange(_fRange)
+	, m_vInitPos(_pOwner->GetPos())
 	, m_vDir(Vec2(1.f, 1.f))
+	, m_fTheta(0.f)
 	, m_pTex(nullptr)
 {
+	SetPos(_pOwner->GetPos());
+
 	m_pTex = CResMgr::GetInst()->LoadTexture(L"MissileTex", L"texture\\Missile.bmp");
 
 	m_vDir.Normalize();	// ∫§≈Õ ¡§±‘»≠
@@ -28,13 +35,22 @@ CMissile::~CMissile()
 void CMissile::update()
 {
 	Vec2 vPos = GetPos();
-
-	// vPos.x += 600.f * cosf(m_fTheta) * fDT;
-	// vPos.y -= 600.f * sinf(m_fTheta) * fDT;
 	
-	vPos.x += 600.f * m_vDir.x * fDT;
-	vPos.y += 600.f * m_vDir.y * fDT;
-	 
+	Vec2 vDiffer = vPos - m_vInitPos;
+	float fLenth = vDiffer.Length();
+
+	//vPos.x += 600.f * m_vDir.x * fDT;
+	//vPos.y += 600.f * m_vDir.y * fDT;
+	
+	vPos.x += m_fSpeed * cosf(m_fTheta) * fDT;
+	vPos.y -= m_fSpeed * sinf(m_fTheta) * fDT;
+
+	if (m_fRange < fLenth)
+	{
+		DeleteObject(this);
+		return;
+	}
+
 	SetPos(vPos);
 }
 
@@ -54,10 +70,12 @@ void CMissile::render(HDC _dc)
 	//	, m_pTex->GetDC()
 	//	, 0, 0, SRCCOPY);
 
+	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(vPos);
+
 	// (255, 0, 255) ∏∂¡®≈∏ ªˆªÛ¿∫ ª©∞Ì ∫πªÁ«ÿ¡‡
 	TransparentBlt(_dc
-		, int(vPos.x - (float)(iWidth / 2))
-		, int(vPos.y - (float)(iHeight / 2))
+		, int(vRenderPos.x - (float)(iWidth / 2))
+		, int(vRenderPos.y - (float)(iHeight / 2))
 		, iWidth, iHeight
 		, m_pTex->GetDC()
 		, 0, 0, iWidth, iHeight
@@ -74,6 +92,8 @@ void CMissile::OnCollisionEnter(CCollider* _pOther)
 
 	if (pOtherObj->GetName() == L"Monster")
 	{
+		Creature* pCreature = static_cast<Creature*>(pOtherObj);
+		pCreature->Attacked(m_pOwner);
 		DeleteObject(this);
 	}
 }

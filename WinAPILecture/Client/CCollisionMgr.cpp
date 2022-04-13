@@ -41,13 +41,14 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 	const vector<CObject*>& vecRight = pCurScene->GetGroupObject(_eRight);
 	map<ULONGLONG, bool>::iterator iter;
 
+	// 총알 
 	for (size_t i = 0; i < vecLeft.size(); ++i)
 	{
 		// 충돌체가 없는 경우
 		if (nullptr == vecLeft[i]->GetCollider())
 			continue;
 
-		for (size_t j = i; j < vecRight.size(); ++j)
+		for (size_t j = 0; j < vecRight.size(); ++j)
 		{
 			// 충돌체가 없거나 내 자신이라면
 			if (nullptr == vecRight[j]->GetCollider() ||

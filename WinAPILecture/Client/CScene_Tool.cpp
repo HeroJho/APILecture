@@ -7,6 +7,7 @@
 #include "CCore.h"
 #include "CResMgr.h"
 #include "CSceneMgr.h"
+#include "CUIMgr.h"
 
 #include "resource.h"
 #include "CUI.h"
@@ -14,8 +15,10 @@
 #include "CPanelUI.h"
 #include "CBtnUI.h"
 
+void ChangeScene(DWORD_PTR, DWORD_PTR);
 
 CScene_Tool::CScene_Tool()
+	: m_pUI(nullptr)
 {
 
 }
@@ -39,10 +42,11 @@ void CScene_Tool::Enter()
 	pPanelUI->SetScale(Vec2(500.f, 300.f));
 	pPanelUI->SetPos(Vec2(vResolution.x - pPanelUI->GetScale().x, 0.f));
 
-	CUI* pBtnUI = new CBtnUI;
+	CBtnUI* pBtnUI = new CBtnUI;
 	pBtnUI->SetName(L"BtnUI");
 	pBtnUI->SetScale(Vec2(100.f, 40.f));
 	pBtnUI->SetPos(Vec2(0.f , 0.f));
+	pBtnUI->SetClickedCallBack(ChangeScene, 0, 0);
 
 	pPanelUI->AddChild(pBtnUI);
 
@@ -51,6 +55,8 @@ void CScene_Tool::Enter()
 	CUI* pClonePanel = pPanelUI->Clone();
 	pClonePanel->SetPos(pClonePanel->GetPos() + Vec2(-500.f, 0.f));
 	AddObject(pClonePanel, GROUP_TYPE::UI);
+
+	m_pUI = pClonePanel;
 	
 	// Camera Look ÁöÁ¤
 	CCamera::GetInst()->SetLookAt(vResolution / 2);
@@ -58,7 +64,7 @@ void CScene_Tool::Enter()
 
 void CScene_Tool::Exit()
 {
-
+	DeleteAll();
 }
 
 void CScene_Tool::update()
@@ -66,6 +72,11 @@ void CScene_Tool::update()
 	CScene::update();
 
 	SetTileIdx();
+
+	if (KEY_TAP(KEY::LSHIFT))
+	{
+		CUIMgr::GetInst()->SetFocusedUI(m_pUI);
+	}
 }
 
 void CScene_Tool::SetTileIdx()
@@ -95,6 +106,11 @@ void CScene_Tool::SetTileIdx()
 }
 
 
+
+void ChangeScene(DWORD_PTR, DWORD_PTR)
+{
+	ChangeScene(SCENE_TYPE::START);
+}
 
 
 

@@ -25,6 +25,7 @@
 #define	MOUSE_POS CKeyMgr::GetInst()->GetMousePos()
 
 #define PI 3.1415926535f
+#define DPI PI * 2.f
 
 #define TILE_SIZE 64
 
@@ -38,7 +39,6 @@ enum class GROUP_TYPE
 	MONSTER,
 	PROJ_PLAYER,
 	PROJ_MONSTER,
-
 
 	UI = 31,			// UI는 가장 앞에 그려져야 한다!
 	END = 32

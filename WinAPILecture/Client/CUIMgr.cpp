@@ -69,9 +69,25 @@ void CUIMgr::SetFocusedUI(CUI* _pUI)
 		return;
 	}
 
-	
+	m_pFocusedUI = _pUI;
+
 	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
 	vector<CObject*>& vecUI = pCurScene->GetUIGroup();
+
+	vector<CObject*>::iterator iter = vecUI.begin();
+
+	for (; iter != vecUI.end(); ++iter)
+	{
+		if (m_pFocusedUI == *iter)
+		{
+			break;
+		}
+	}
+
+	// 순번 교체
+	vecUI.erase(iter);
+	vecUI.push_back(m_pFocusedUI);
+
 }
 
 CUI* CUIMgr::GetFocusedUI()

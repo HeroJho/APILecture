@@ -2,14 +2,19 @@
 #include "CObject.h"
 
 class CTexture;
+class Creature;
 
 class CMissile :
     public CObject
 {
 private:
-    float   m_fTheta;     // 이동 방향
+    Creature*    m_pOwner;      // 투사체 오너
+    float        m_fSpeed;      // 투사체 스피드
+    float        m_fRange;      // 투사체 거리
+    Vec2         m_vInitPos;    // 초기 위치
 
-    Vec2    m_vDir;
+    float   m_fTheta;           // 이동 방향
+    Vec2    m_vDir;             // 이동 방향
 
 private:
     CTexture* m_pTex;
@@ -31,7 +36,7 @@ public:
 
     CLONE(CMissile)
 public:
-    CMissile();
+    CMissile(Creature* _pOwner, float _fRange, float _fSpeed);
     ~CMissile();
 
 };
