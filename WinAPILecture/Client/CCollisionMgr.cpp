@@ -36,12 +36,13 @@ void CCollisionMgr::update()
 void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 {
 	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-
+	
+	// 체크된 오브젝트 둘을 가져온다
 	const vector<CObject*>& vecLeft = pCurScene->GetGroupObject(_eLeft);
 	const vector<CObject*>& vecRight = pCurScene->GetGroupObject(_eRight);
 	map<ULONGLONG, bool>::iterator iter;
 
-	// 총알 
+
 	for (size_t i = 0; i < vecLeft.size(); ++i)
 	{
 		// 충돌체가 없는 경우
@@ -55,10 +56,13 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 				vecLeft[i] == vecRight[j])
 				continue;
 
+			// 둘 다 충돌체가 있다=====
+
 			CCollider* pLeftCol = vecLeft[i]->GetCollider();
 			CCollider* pRightCol = vecRight[j]->GetCollider();
 
 			// union을 사용해서 두 충돌체 조합 아이디 생성
+
 			COLLIDER_ID ID;
 			ID.Left_id = pLeftCol->GetID();
 			ID.Right_id = pRightCol->GetID();

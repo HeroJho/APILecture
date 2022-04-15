@@ -20,6 +20,7 @@ using std::wstring;
 
 #include <math.h>
 #include <assert.h>
+#include <algorithm>
 
 // 마젠타 색상 빼는 함수 라이브러리
 #pragma comment(lib, "Msimg32.lib")

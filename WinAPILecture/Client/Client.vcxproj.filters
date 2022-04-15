@@ -124,6 +124,15 @@
     <Filter Include="Scripts\Mgr">
       <UniqueIdentifier>{79db160c-6c8c-47c1-b2ee-722172ad5731}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Skill\EnergyBall">
+      <UniqueIdentifier>{896107a7-5ef3-4a22-a686-9263edaa295e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Skill\Twister">
+      <UniqueIdentifier>{8ca665a8-e14b-4954-91da-47401811eb32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Spawner">
+      <UniqueIdentifier>{76f80bfd-0298-4e94-aa93-fb238b516231}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -238,14 +247,23 @@
     <ClInclude Include="CSkill.h">
       <Filter>Scripts\Skill</Filter>
     </ClInclude>
-    <ClInclude Include="CEnergyBall.h">
-      <Filter>Scripts\Skill</Filter>
-    </ClInclude>
     <ClInclude Include="CGameMgr.h">
       <Filter>Scripts\Mgr</Filter>
     </ClInclude>
     <ClInclude Include="CSKillMgr.h">
       <Filter>Scripts\Mgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnergyBall.h">
+      <Filter>Scripts\Skill\EnergyBall</Filter>
+    </ClInclude>
+    <ClInclude Include="CTwisterSkill.h">
+      <Filter>Scripts\Skill\Twister</Filter>
+    </ClInclude>
+    <ClInclude Include="CTwister.h">
+      <Filter>Scripts\Skill\Twister</Filter>
+    </ClInclude>
+    <ClInclude Include="CSpawner.h">
+      <Filter>Scripts\Spawner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -343,14 +361,23 @@
     <ClCompile Include="CSkill.cpp">
       <Filter>Scripts\Skill</Filter>
     </ClCompile>
-    <ClCompile Include="CEnergyBall.cpp">
-      <Filter>Scripts\Skill</Filter>
-    </ClCompile>
     <ClCompile Include="CGameMgr.cpp">
       <Filter>Scripts\Mgr</Filter>
     </ClCompile>
     <ClCompile Include="CSKillMgr.cpp">
       <Filter>Scripts\Mgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnergyBall.cpp">
+      <Filter>Scripts\Skill\EnergyBall</Filter>
+    </ClCompile>
+    <ClCompile Include="CTwisterSkill.cpp">
+      <Filter>Scripts\Skill\Twister</Filter>
+    </ClCompile>
+    <ClCompile Include="CTwister.cpp">
+      <Filter>Scripts\Skill\Twister</Filter>
+    </ClCompile>
+    <ClCompile Include="CSpawner.cpp">
+      <Filter>Scripts\Spawner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

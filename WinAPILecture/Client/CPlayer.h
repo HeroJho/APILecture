@@ -16,7 +16,6 @@ public:
 
 private:
     void SkillUpdate();
-    void CreateMissile(float _vDir);
 
 
     CLONE(CPlayer)

@@ -30,7 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     
     // 인자에 릭 난 번호 넣으면 break 건다 >> 호출스택으로 추격
     // 릭날때만 사용하고 그 외에는 주석처리 잘 하기
-    // _CrtSetBreakAlloc(441);
+    // _CrtSetBreakAlloc(418);
 
 
     UNREFERENCED_PARAMETER(hPrevInstance);
@@ -192,6 +192,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             // 그리기 종료
             EndPaint(hWnd, &ps);
+        }
+        break;
+
+    case WM_KEYDOWN:
+        switch (wParam)
+        {
+        case VK_ESCAPE:
+            PostQuitMessage(0);
+            break;
         }
         break;
     case WM_DESTROY:

@@ -90,6 +90,11 @@ void CMissile::OnCollisionEnter(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
 
+	// true
+
+	if (this->IsDead())
+		return;
+
 	if (pOtherObj->GetName() == L"Monster")
 	{
 		Creature* pCreature = static_cast<Creature*>(pOtherObj);

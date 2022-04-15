@@ -14,19 +14,36 @@
 
 #include "CGameMgr.h"
 #include "CSKillMgr.h"
+
+#include "CSpawner.h"
+
 #include "CEnergyBall.h"
+#include "CTwister.h"
+#include "CTwisterSkill.h"
+
+void Test();
+
 
 Scene_Start::Scene_Start()
+	: m_pSpawner(nullptr)
 {
 }
 
 Scene_Start::~Scene_Start()
 {
+	if (nullptr != m_pSpawner)
+		delete m_pSpawner;
 }
 
 void Scene_Start::update()
 {
 	CScene::update();
+
+
+	// 몬스터 스포너 Update실행
+	if(nullptr != m_pSpawner)
+		m_pSpawner->update();
+	
 
 	//if (KEY_TAP(KEY::ENTER))
 	//{
@@ -43,7 +60,7 @@ void Scene_Start::update()
 void Scene_Start::Enter()
 {
 	// Player
-	CreatureInfo* pInfo = new CreatureInfo(100, 1, 1);
+	CreatureInfo* pInfo = new CreatureInfo(100, 2, 1);
 	CPlayer* pObj = new CPlayer(pInfo);
 	pObj->SetName(L"Player");
 	pObj->SetPos(Vec2(640.f, 384.f));
@@ -56,30 +73,18 @@ void Scene_Start::Enter()
 	CGameMgr::GetInst()->SetPlayer(pObj);
 
 	// 에너지볼 스킬 추가
-	CEnergyBall* pEnergyBall = new CEnergyBall(0.1f, 300.f, 200.f);
+	CEnergyBall* pEnergyBall = new CEnergyBall(.005f, 800.f, 400.f);
 	CGameMgr::GetInst()->GetSkillMgr()->AddSkill(pEnergyBall);
 
-	// Monster 배치
-	int iMonCount = 10;
-	float fMoveDist = 50.f;
-	float fObjScale = 50.f;
+	// 트위스터 스킬 추가
+	//CTwisterSkill* pTwisterSkill = new CTwisterSkill(.05f, 1.f, 100.f, 5);
+	//CGameMgr::GetInst()->GetSkillMgr()->AddSkill(pTwisterSkill);
 
-	Vec2 vResolution = CCore::GetInst()->GetResolution();
-	float fTerm = (vResolution.x - ((fMoveDist + fObjScale / 2.f) * 2)) / (float)(iMonCount - 1);
+	// Test();
 
-	CMonster* pMonsterObj = nullptr;
+	// Spawner 생성
+	m_pSpawner = new CSpawner();
 
-	for (int i = 0; i < iMonCount; ++i)
-	{
-		pInfo = new CreatureInfo(10, 1, 1);
-		pMonsterObj = new CMonster(pInfo);
-		pMonsterObj->SetName(L"Monster");
-		pMonsterObj->SetPos(Vec2((fMoveDist + fObjScale / 2.f) + (float)i * fTerm, 50.f));
-		pMonsterObj->SetCenterPos(pMonsterObj->GetPos());
-		pMonsterObj->SetMoveDistance(fMoveDist);
-		pMonsterObj->SetScale(Vec2(fObjScale, fObjScale));
-		AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
-	}
 
 	// 충돌 지정 >> 모든 오브젝트마다 충돌 체크하면 경우의 수가 너무 많아진다
 	// 설정한 그룹별로 체크한다!
@@ -87,16 +92,34 @@ void Scene_Start::Enter()
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::MONSTER, GROUP_TYPE::PROJ_PLAYER);
 
 	// Camera Look 초기 지정
-	CCamera::GetInst()->SetLookAt(vResolution / 2.f);
+	// CCamera::GetInst()->SetLookAt(vResolution / 2.f);
 }
 
 void Scene_Start::Exit()
-{
+{	
 	// 모든 객체 삭제
 	DeleteAll();
 
 	// 씬이 종료하면 그룹별 충돌 설정은 초기화!
 	// 다음씬에서 충돌 관계가 바뀔 수도 있으니
 	CCollisionMgr::GetInst()->Reset();
+}
+
+void Test()
+{
+	UINT iCount = 3;
+
+	for (int i = 0; i < iCount; ++i)
+	{
+		CScene* cCurScene = CSceneMgr::GetInst()->GetCurScene();
+
+		CreatureInfo* pInfo = new CreatureInfo(10, 1, 1);
+
+		CMonster* pMonsterObj = new CMonster(pInfo);
+		pMonsterObj->SetName(L"Monster");
+		pMonsterObj->SetPos(Vec2(50.f, 50.f));
+		pMonsterObj->SetScale(Vec2(50.f, 50.f));
+		cCurScene->AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+	}
 }
 

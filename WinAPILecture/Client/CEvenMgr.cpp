@@ -59,6 +59,11 @@ void CEvenMgr::Excute(const tEvent& _eve)
 		// Object를 Dead 상태로 변경
 		// 삭제예정 오브젝트들을 모아둔다.
 		CObject* pDeadObj = (CObject*)_eve.lParam;
+
+		// 한 프레임에 중복 죽기 x
+		if (pDeadObj->IsDead())
+			return;
+
 		pDeadObj->SetDead();
 		m_vecDead.push_back(pDeadObj);
 	}

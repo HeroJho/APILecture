@@ -15,7 +15,7 @@ public:
 
 public:
 	CSkill(float _fCoolDown);
-	~CSkill();
+	virtual ~CSkill();
 
 };
 

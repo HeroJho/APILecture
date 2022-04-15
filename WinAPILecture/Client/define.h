@@ -78,3 +78,11 @@ enum class EVENT_TYPE
 	
 	END
 };
+
+
+enum class MONSTER_TYPE
+{
+	NONE,
+	BALLMAN,
+
+};

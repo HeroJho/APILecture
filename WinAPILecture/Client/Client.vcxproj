@@ -183,9 +183,12 @@
     <ClInclude Include="CSkill.h" />
     <ClInclude Include="CSKillMgr.h" />
     <ClInclude Include="CSound.h" />
+    <ClInclude Include="CSpawner.h" />
     <ClInclude Include="CTexture.h" />
     <ClInclude Include="CTile.h" />
     <ClInclude Include="CTimeMgr.h" />
+    <ClInclude Include="CTwister.h" />
+    <ClInclude Include="CTwisterSkill.h" />
     <ClInclude Include="CUI.h" />
     <ClInclude Include="CUIMgr.h" />
     <ClInclude Include="define.h" />
@@ -225,9 +228,12 @@
     <ClCompile Include="CSkill.cpp" />
     <ClCompile Include="CSKillMgr.cpp" />
     <ClCompile Include="CSound.cpp" />
+    <ClCompile Include="CSpawner.cpp" />
     <ClCompile Include="CTexture.cpp" />
     <ClCompile Include="CTile.cpp" />
     <ClCompile Include="CTimeMgr.cpp" />
+    <ClCompile Include="CTwister.cpp" />
+    <ClCompile Include="CTwisterSkill.cpp" />
     <ClCompile Include="CUI.cpp" />
     <ClCompile Include="CUIMgr.cpp" />
     <ClCompile Include="func.cpp" />

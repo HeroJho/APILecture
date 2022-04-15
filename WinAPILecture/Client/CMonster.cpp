@@ -2,17 +2,16 @@
 #include "CMonster.h"
 
 #include "CTimeMgr.h"
+#include "CGameMgr.h"
 
 #include "CResMgr.h"
 #include "CTexture.h"
 
 #include "CCollider.h"
+#include "CPlayer.h"
 
 CMonster::CMonster(CreatureInfo* _sInfo)
-	: m_vCenterPos(Vec2(0.f, 0.f))
-	, m_fSpeed(100.f)
-	, m_fMaxDistance(50.f)
-	, m_iDir(1)
+	: m_fSpeed(100.f)
 	, m_pTex(nullptr)
 {
 	m_sInfo = _sInfo;
@@ -31,26 +30,39 @@ CMonster::~CMonster()
 }
 
 void CMonster::update()
-{ 
-	return;
+{
 
 	Vec2 vCurPos = GetPos();
 
-	// 진행 바향으로 시간당 m_fSpeed 만큼 이동
-	vCurPos.x += fDT * m_fSpeed * m_iDir;
+	// 플레이어를 향하는 방향을 구해줘야 한다.
 
-	// 배회거리 기준량을 넘어섰는지 확인
-	// 배회거리 초과량
-	float fDist = abs(m_vCenterPos.x - vCurPos.x) - m_fMaxDistance;
+	// 목표 위치 - 내 위치
+	Vec2 destinPos = CGameMgr::GetInst()->GetPlayer()->GetPos();
+	Vec2 vDir = destinPos - vCurPos;
+	m_vDir = vDir.Normalize();
 
-	// 초과했다
-	if (0.f < fDist)
-	{
-		m_iDir *= -1;
-		vCurPos.x += fDist * m_iDir;	// 초과한 만큼 빼고 진행
-	}
+	vCurPos.x += m_fSpeed * m_vDir.x * fDT;
+	vCurPos.y += m_fSpeed * m_vDir.y * fDT;
 
 	SetPos(vCurPos);
+
+	//Vec2 vCurPos = GetPos();
+
+	//// 진행 바향으로 시간당 m_fSpeed 만큼 이동
+	//vCurPos.x += fDT * m_fSpeed * m_iDir;
+
+	//// 배회거리 기준량을 넘어섰는지 확인
+	//// 배회거리 초과량
+	//float fDist = abs(m_vCenterPos.x - vCurPos.x) - m_fMaxDistance;
+
+	//// 초과했다
+	//if (0.f < fDist)
+	//{
+	//	m_iDir *= -1;
+	//	vCurPos.x += fDist * m_iDir;	// 초과한 만큼 빼고 진행
+	//}
+
+	//SetPos(vCurPos);
 }
 
 void CMonster::render(HDC _dc)
@@ -92,8 +104,5 @@ void CMonster::OnCollisionEnter(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
 
-	/*if (pOtherObj->GetName() == L"Missile_Player")
-	{
-		DeleteObject(this);
-	}*/
+
 }

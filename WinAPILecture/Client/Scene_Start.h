@@ -1,8 +1,14 @@
 #pragma once
 #include "CScene.h"
+
+class CSpawner;
+
 class Scene_Start :
     public CScene
 {
+private:
+    CSpawner* m_pSpawner;
+
 public:
     virtual void update();
     virtual void Enter();
