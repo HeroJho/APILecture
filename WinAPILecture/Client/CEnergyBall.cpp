@@ -36,17 +36,20 @@ void CEnergyBall::update()
 		CreateMissile();
 		m_fCurCool = 0.f;
 	}
+
 }
 
 void CEnergyBall::CreateMissile()
 {
-	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
+	//CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
 
-	CMissile* pMissile = new CMissile(CGameMgr::GetInst()->GetPlayer(), m_fRange, m_fSpeed);
-	pMissile->SetName(L"Missile_Player");
-	pMissile->SetScale(Vec2(25.f, 25.f));
-	pMissile->SetDir(m_fCurSkillDir);
+	//CMissile* pMissile = new CMissile(CGameMgr::GetInst()->GetPlayer(), m_fRange, m_fSpeed);
+	//pMissile->SetName(L"Missile_Player");
+	//pMissile->SetScale(Vec2(25.f, 25.f));
+	//pMissile->SetDir(m_fCurSkillDir);
 
-	CreateObject(pMissile, GROUP_TYPE::PROJ_PLAYER);
+	//CreateObject(pMissile, GROUP_TYPE::PROJ_PLAYER);
+
+	CreateEnergeBall(m_fRange, m_fSpeed, m_fCurSkillDir);
 
 }

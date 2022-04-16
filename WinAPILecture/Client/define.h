@@ -85,4 +85,17 @@ enum class MONSTER_TYPE
 	NONE,
 	BALLMAN,
 
+
+
+	END
+};
+
+enum class POOLING_TYPE
+{
+	MONSTER,
+	ENERGEBALL,
+
+
+
+	END
 };

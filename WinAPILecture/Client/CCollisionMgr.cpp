@@ -5,6 +5,7 @@
 #include "CScene.h"
 #include "CObject.h"
 #include "CCollider.h"
+#include "CPooling.h"
 
 CCollisionMgr::CCollisionMgr()
 	: m_arrCheck{}
@@ -56,6 +57,8 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 				vecLeft[i] == vecRight[j])
 				continue;
 
+
+
 			// 둘 다 충돌체가 있다=====
 
 			CCollider* pLeftCol = vecLeft[i]->GetCollider();
@@ -74,6 +77,23 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 			{
 				m_mapColInfo.insert(make_pair(ID.ID, false));
 				iter = m_mapColInfo.find(ID.ID);
+			}
+
+
+			// 풀여부 확인
+			if ((vecRight[j]->GetPooling() && !(vecRight[j]->GetPooling()->Get_Active())) ||
+				(vecLeft[i]->GetPooling() && !(vecLeft[i]->GetPooling()->Get_Active())))
+			{
+				// 둘이 충돌 중이다
+				if (IsCollision(pLeftCol, pRightCol) && iter->second)
+				{
+					pLeftCol->OnCollisionExit(pRightCol);
+					pRightCol->OnCollisionExit(pLeftCol);
+
+					iter->second = false;
+				}
+
+				continue;
 			}
 
 

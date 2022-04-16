@@ -2,6 +2,8 @@
 
 class CObject;
 
+void CreateEnergeBall(float _fRange, float _fSpeed, float _vDir);
+
 void CreateObject(CObject* _pObj, GROUP_TYPE _eGroup);
 void DeleteObject(CObject* _pObj);
 void ChangeScene(SCENE_TYPE _eNext);

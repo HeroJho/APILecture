@@ -174,6 +174,8 @@
     <ClInclude Include="CPanelUI.h" />
     <ClInclude Include="CPathMgr.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CPooling.h" />
+    <ClInclude Include="CPoolingMgr.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="CRes.h" />
     <ClInclude Include="CResMgr.h" />
@@ -219,6 +221,8 @@
     <ClCompile Include="CPanelUI.cpp" />
     <ClCompile Include="CPathMgr.cpp" />
     <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="CPooling.cpp" />
+    <ClCompile Include="CPoolingMgr.cpp" />
     <ClCompile Include="Creature.cpp" />
     <ClCompile Include="CRes.cpp" />
     <ClCompile Include="CResMgr.cpp" />

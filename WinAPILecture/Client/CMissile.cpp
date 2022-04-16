@@ -25,11 +25,26 @@ CMissile::CMissile(Creature* _pOwner, float _fRange, float _fSpeed)
 
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(15.f, 15.f));
+
+	CreatePooling(POOLING_TYPE::ENERGEBALL);
 }
 
 CMissile::~CMissile()
 {
 	
+}
+
+void CMissile::Init(Creature* _pOwner, float _fRange, float _fSpeed)
+{
+	m_pOwner = _pOwner;
+	m_fRange = _fRange;
+	m_fSpeed = _fSpeed;
+
+	SetPos(_pOwner->GetPos());
+
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"MissileTex", L"texture\\Missile.bmp");
+
+	m_vDir.Normalize();	// º¤ÅÍ Á¤±ÔÈ­
 }
 
 void CMissile::update()
@@ -89,8 +104,6 @@ void CMissile::render(HDC _dc)
 void CMissile::OnCollisionEnter(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
-
-	// true
 
 	if (this->IsDead())
 		return;

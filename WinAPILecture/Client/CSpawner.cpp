@@ -78,7 +78,8 @@ void CSpawner::CreateBallMan()
 	pMonsterObj->SetName(L"Monster");
 	pMonsterObj->SetPos(GenerateRandomPos());
 	pMonsterObj->SetScale(Vec2(50.f, 50.f));
-	cCurScene->AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+	// cCurScene->AddObject(pMonsterObj, GROUP_TYPE::MONSTER);
+	CreateObject(pMonsterObj, GROUP_TYPE::MONSTER);
 }
 
 Vec2 CSpawner::GenerateRandomPos()

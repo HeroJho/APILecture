@@ -6,12 +6,15 @@
 
 #include "CCollider.h"
 #include "CAnimator.h"
+#include "CPooling.h"
+
 
 CObject::CObject()
 	: m_vPos{}
 	, m_vScale{}
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
+	, m_pPooling(nullptr)
 	, m_bAlive(true)
 {
 }
@@ -22,6 +25,7 @@ CObject::CObject(const CObject& _origin)
 	, m_vScale(_origin.m_vScale)
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
+	, m_pPooling(nullptr)
 	, m_bAlive(true)
 {
 	if (_origin.m_pCollider)
@@ -44,6 +48,9 @@ CObject::~CObject()
 
 	if (nullptr != m_pAnimator)
 		delete m_pAnimator;
+
+	if (nullptr != m_pPooling)
+		delete m_pPooling;
 }
 
 void CObject::finalupdate()
@@ -91,4 +98,9 @@ void CObject::CreateAnimator()
 {
 	m_pAnimator = new CAnimator;
 	m_pAnimator->m_pOwner = this;
+}
+
+void CObject::CreatePooling(POOLING_TYPE _ePoolingType)
+{
+	m_pPooling = new CPooling(this, _ePoolingType);
 }

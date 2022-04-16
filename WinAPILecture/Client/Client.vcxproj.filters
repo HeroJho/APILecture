@@ -133,6 +133,15 @@
     <Filter Include="Scripts\Spawner">
       <UniqueIdentifier>{76f80bfd-0298-4e94-aa93-fb238b516231}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\07.Component\Pooling">
+      <UniqueIdentifier>{afef18dd-7c57-4d42-9915-bedd78c35532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Mgr\SkillMgr">
+      <UniqueIdentifier>{44ca0d2a-8fa5-4ffc-afad-180540cb514a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Mgr\PoolingMgr">
+      <UniqueIdentifier>{3dceb8ed-d956-4f35-8854-62c7f93022ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -250,9 +259,6 @@
     <ClInclude Include="CGameMgr.h">
       <Filter>Scripts\Mgr</Filter>
     </ClInclude>
-    <ClInclude Include="CSKillMgr.h">
-      <Filter>Scripts\Mgr</Filter>
-    </ClInclude>
     <ClInclude Include="CEnergyBall.h">
       <Filter>Scripts\Skill\EnergyBall</Filter>
     </ClInclude>
@@ -264,6 +270,15 @@
     </ClInclude>
     <ClInclude Include="CSpawner.h">
       <Filter>Scripts\Spawner</Filter>
+    </ClInclude>
+    <ClInclude Include="CPooling.h">
+      <Filter>Engine\07.Component\Pooling</Filter>
+    </ClInclude>
+    <ClInclude Include="CSKillMgr.h">
+      <Filter>Scripts\Mgr\SkillMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CPoolingMgr.h">
+      <Filter>Scripts\Mgr\PoolingMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -364,9 +379,6 @@
     <ClCompile Include="CGameMgr.cpp">
       <Filter>Scripts\Mgr</Filter>
     </ClCompile>
-    <ClCompile Include="CSKillMgr.cpp">
-      <Filter>Scripts\Mgr</Filter>
-    </ClCompile>
     <ClCompile Include="CEnergyBall.cpp">
       <Filter>Scripts\Skill\EnergyBall</Filter>
     </ClCompile>
@@ -378,6 +390,15 @@
     </ClCompile>
     <ClCompile Include="CSpawner.cpp">
       <Filter>Scripts\Spawner</Filter>
+    </ClCompile>
+    <ClCompile Include="CPooling.cpp">
+      <Filter>Engine\07.Component\Pooling</Filter>
+    </ClCompile>
+    <ClCompile Include="CSKillMgr.cpp">
+      <Filter>Scripts\Mgr\SkillMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CPoolingMgr.cpp">
+      <Filter>Scripts\Mgr\PoolingMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -73,7 +73,7 @@ void Scene_Start::Enter()
 	CGameMgr::GetInst()->SetPlayer(pObj);
 
 	// 에너지볼 스킬 추가
-	CEnergyBall* pEnergyBall = new CEnergyBall(.005f, 800.f, 400.f);
+	CEnergyBall* pEnergyBall = new CEnergyBall(.1f, 800.f, 400.f);
 	CGameMgr::GetInst()->GetSkillMgr()->AddSkill(pEnergyBall);
 
 	// 트위스터 스킬 추가
@@ -83,7 +83,7 @@ void Scene_Start::Enter()
 	// Test();
 
 	// Spawner 생성
-	m_pSpawner = new CSpawner();
+	//m_pSpawner = new CSpawner();
 
 
 	// 충돌 지정 >> 모든 오브젝트마다 충돌 체크하면 경우의 수가 너무 많아진다
