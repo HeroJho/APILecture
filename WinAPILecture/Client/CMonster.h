@@ -17,6 +17,9 @@ public:
     float GetSpeed() { return m_fSpeed; }
     void SetSpeed(float _f) { m_fSpeed = _f; }
 
+
+
+public:
     virtual void OnCollision(CCollider* _pOther);
     virtual void OnCollisionEnter(CCollider* _pOther);
     
@@ -24,6 +27,7 @@ public:
 public:
     virtual void update();
     virtual void render(HDC _dc);
+    virtual void Die();
 
     CLONE(CMonster)
 public:

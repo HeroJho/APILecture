@@ -57,13 +57,6 @@ void CTwister::render(HDC _dc)
 
 	Vec2 vPos = GetPos();
 
-	//BitBlt(_dc 
-	//	, int(vPos.x - (float)(iWidth / 2))
-	//	, int(vPos.y - (float)(iHeight / 2))
-	//	, iWidth, iHeight
-	//	, m_pTex->GetDC()
-	//	, 0, 0, SRCCOPY);
-
 	Vec2 vRenderPos = CCamera::GetInst()->GetRenderPos(vPos);
 
 	// (255, 0, 255) 마젠타 색상은 빼고 복사해줘

@@ -27,8 +27,6 @@ public:
         m_vDir.Normalize();
     }
 
-    void Init(Creature* _pOwner, float _fRange, float _fSpeed);
-
 public:
     virtual void update();
     virtual void render(HDC _dc);

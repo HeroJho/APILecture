@@ -32,6 +32,7 @@ public:
     void Attacked(Creature* _pAttacker);
     bool IsHpZero() { return 0 >= m_sInfo->m_iHp; }
    
+    virtual void Die() = 0;
 
 public:
     void SetDir(float _fTheta) { m_fTheta = _fTheta; }

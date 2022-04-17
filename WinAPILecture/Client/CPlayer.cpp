@@ -10,6 +10,7 @@
 #include "CSKillMgr.h"
 
 #include "CMissile.h"
+#include "CItem.h"
 
 #include "CResMgr.h"
 #include "CTexture.h"
@@ -80,9 +81,38 @@ void CPlayer::render(HDC _dc)
 	component_render(_dc);
 }
 
+void CPlayer::Die()
+{
+	// DeleteObject(this);
+}
+
 void CPlayer::SkillUpdate()
 {
 	CGameMgr::GetInst()->GetSkillMgr()->update();
+}
+
+
+
+void CPlayer::OnCollision(CCollider* _pOther)
+{
+	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->GetName() == L"Item" && KEY_TAP(KEY::Z))
+	{
+		CItem* pItem = static_cast<CItem*>(pOtherObj);
+		pItem->useItem(this);
+	}
+}
+
+void CPlayer::OnCollisionEnter(CCollider* _pOther)
+{
+	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->GetName() == L"ItemBox")
+	{
+		CItem* pItem = static_cast<CItem*>(pOtherObj);
+		pItem->useItem(this);
+	}
 }
 
 

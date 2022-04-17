@@ -7,13 +7,13 @@ class CSpawner
 private:
 	MONSTER_TYPE	m_eMonsterType;			// 현재 소환중인 몬스터
 	float			m_fGenSpeed;			// 젠 속도
+	UINT			m_iCount;				// 젠 속도당 마릿수
+
 	float			m_fCurTime;				// 누적 시간
-	
-											// 어느 위치에 생성할 지
-	
-	float m_test;
+	float			m_fSpawnTheta;			// 플레이어 기준 스폰 위치
 
 public:
+	void Init(MONSTER_TYPE _eMonsterType, float _fGenSpeed, UINT _iCount);
 	void update();
 
 

@@ -142,6 +142,21 @@
     <Filter Include="Scripts\Mgr\PoolingMgr">
       <UniqueIdentifier>{3dceb8ed-d956-4f35-8854-62c7f93022ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Item">
+      <UniqueIdentifier>{e237b21e-771d-4836-af15-b0f7bccf28fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Item\Twister_Item">
+      <UniqueIdentifier>{321b386f-d38f-45bc-abd0-cebbc48a15c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Item\EnergeBall_Item">
+      <UniqueIdentifier>{8daaac4d-3486-494c-a1dd-937d0d3eabd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Item\ItemBox">
+      <UniqueIdentifier>{a13275d3-28e9-4185-87bc-fc0d6b20ec15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Skill\TTengBall">
+      <UniqueIdentifier>{8f34c5fc-ed6b-40f1-8a2f-1e704b605cca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -253,9 +268,6 @@
     <ClInclude Include="Creature.h">
       <Filter>Engine\04.Object\Creature</Filter>
     </ClInclude>
-    <ClInclude Include="CSkill.h">
-      <Filter>Scripts\Skill</Filter>
-    </ClInclude>
     <ClInclude Include="CGameMgr.h">
       <Filter>Scripts\Mgr</Filter>
     </ClInclude>
@@ -279,6 +291,24 @@
     </ClInclude>
     <ClInclude Include="CPoolingMgr.h">
       <Filter>Scripts\Mgr\PoolingMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CItem.h">
+      <Filter>Scripts\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="CTwister_Item.h">
+      <Filter>Scripts\Item\Twister_Item</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnergeBall_Item.h">
+      <Filter>Scripts\Item\EnergeBall_Item</Filter>
+    </ClInclude>
+    <ClInclude Include="CItemBox.h">
+      <Filter>Scripts\Item\ItemBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CTTengBallSkill.h">
+      <Filter>Scripts\Skill\TTengBall</Filter>
+    </ClInclude>
+    <ClInclude Include="CTTengBall.h">
+      <Filter>Scripts\Skill\TTengBall</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -373,9 +403,6 @@
     <ClCompile Include="Creature.cpp">
       <Filter>Engine\04.Object\Creature</Filter>
     </ClCompile>
-    <ClCompile Include="CSkill.cpp">
-      <Filter>Scripts\Skill</Filter>
-    </ClCompile>
     <ClCompile Include="CGameMgr.cpp">
       <Filter>Scripts\Mgr</Filter>
     </ClCompile>
@@ -399,6 +426,24 @@
     </ClCompile>
     <ClCompile Include="CPoolingMgr.cpp">
       <Filter>Scripts\Mgr\PoolingMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CItem.cpp">
+      <Filter>Scripts\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CTwister_Item.cpp">
+      <Filter>Scripts\Item\Twister_Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnergeBall_Item.cpp">
+      <Filter>Scripts\Item\EnergeBall_Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CItemBox.cpp">
+      <Filter>Scripts\Item\ItemBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CTTengBallSkill.cpp">
+      <Filter>Scripts\Skill\TTengBall</Filter>
+    </ClCompile>
+    <ClCompile Include="CTTengBall.cpp">
+      <Filter>Scripts\Skill\TTengBall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

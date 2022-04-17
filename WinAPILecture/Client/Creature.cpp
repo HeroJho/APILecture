@@ -24,7 +24,7 @@ void Creature::Attacked(Creature* _pAttacker)
 	
 	if (IsHpZero() && !m_bIsDie)
 	{
-		DeleteObject(this);
 		m_bIsDie = true;
+		Die();
 	}
 }

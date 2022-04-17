@@ -14,7 +14,8 @@ CSpawner::CSpawner()
 	: m_eMonsterType(MONSTER_TYPE::BALLMAN)
 	, m_fGenSpeed(1.f)
 	, m_fCurTime(0.f)
-	, m_test(0.f)
+	, m_fSpawnTheta(0.f)
+	, m_iCount(0)
 {
 
 }
@@ -24,23 +25,11 @@ CSpawner::~CSpawner()
 
 }
 
-
-
-void CSpawner::update()
+void CSpawner::Init(MONSTER_TYPE _eMonsterType, float _fGenSpeed, UINT _iCount)
 {
-	m_fCurTime += fDT;
-	if (m_fGenSpeed < m_fCurTime)
-	{
-		
-
-
-		CreateMonster();
-
-
-
-		m_fCurTime = 0.f;
-	}
-
+	m_eMonsterType = _eMonsterType;
+	m_fGenSpeed = _fGenSpeed;
+	m_iCount = _iCount;
 }
 
 void CSpawner::Set_MonsterType(MONSTER_TYPE _eMonsterType)
@@ -48,10 +37,20 @@ void CSpawner::Set_MonsterType(MONSTER_TYPE _eMonsterType)
 	m_eMonsterType = _eMonsterType;
 }
 
+void CSpawner::update()
+{
+	m_fCurTime += fDT;
+	if (m_fGenSpeed < m_fCurTime)
+	{
+		CreateMonster();
+		m_fCurTime = 0.f;
+	}
+
+}
+
+
 void CSpawner::CreateMonster()
 {
-	UINT iCount = 10;		// 몇 마리를
-
 
 	switch (m_eMonsterType)
 	{
@@ -59,13 +58,15 @@ void CSpawner::CreateMonster()
 		break;
 	case MONSTER_TYPE::BALLMAN:
 	{
-		for (int i = 0; i < iCount; ++i)
+		for (int i = 0; i < m_iCount; ++i)
 		{
 			CreateBallMan();
 		}
 	}		
 		break;
+
 	}
+
 }
 
 void CSpawner::CreateBallMan()
@@ -88,14 +89,13 @@ Vec2 CSpawner::GenerateRandomPos()
 
 	Vec2 vPlayerPos = CGameMgr::GetInst()->GetPlayer()->GetPos();
 
-	float fTheta = 0.f;
-	m_test += 1.0f;
+	m_fSpawnTheta = GetRandomNum(0.f, DPI);
 
-	if (DPI < m_test)
-		m_test = 0;
+	//if (DPI < m_fSpawnTheta)
+	//	m_fSpawnTheta = 0;
 
-	vRandomPos.x = vPlayerPos.x + 1000.f * cosf(m_test);
-	vRandomPos.y = vPlayerPos.y + 1000.f * sinf(m_test);
+	vRandomPos.x = vPlayerPos.x + 800.f * cosf(m_fSpawnTheta);
+	vRandomPos.y = vPlayerPos.y + 800.f * sinf(m_fSpawnTheta);
 
 	return vRandomPos;
 }

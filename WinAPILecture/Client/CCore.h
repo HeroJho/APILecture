@@ -1,31 +1,4 @@
 
-// 悼利 教臂沛
-//class CCore
-//{
-//private:
-//	static CCore* g_pInst;
-//	CCore();
-//	~CCore();
-//
-//public:
-//	static CCore* GetInstance()
-//	{
-//		if (nullptr == g_pInst)
-//			g_pInst = new CCore;
-//
-//		return g_pInst;
-//	}
-//
-//	static void Release()
-//	{
-//		if (nullptr != g_pInst)
-//		{
-//			delete g_pInst;
-//			g_pInst = nullptr;
-//		}
-//	}
-//};
-
 // 沥利 教臂沛
 class CCore
 {

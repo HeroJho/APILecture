@@ -2,8 +2,6 @@
 
 class CObject;
 
-void CreateEnergeBall(float _fRange, float _fSpeed, float _vDir);
-
 void CreateObject(CObject* _pObj, GROUP_TYPE _eGroup);
 void DeleteObject(CObject* _pObj);
 void ChangeScene(SCENE_TYPE _eNext);
@@ -36,3 +34,7 @@ void Safe_Delete_Vec(vector<T>& _vec)
 	 }
 	 _map.clear();
  }
+
+
+ float GetRandomNum(float _tLeft, float _tRight);
+ int GetRandomNum(int _tLeft, int _tRight);

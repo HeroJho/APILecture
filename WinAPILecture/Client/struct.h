@@ -31,6 +31,11 @@ public:
 		return *this;
 	}
 
+	Vec2 GetInverseVec()
+	{
+		return (*this) * -1.f;
+	}
+
 
 public:
 	Vec2& operator = (POINT _pt)

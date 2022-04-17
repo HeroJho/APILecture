@@ -1,32 +1,55 @@
 #include "pch.h"
 #include "CSKillMgr.h"
-#include "CSkill.h"
+
+#include "CEnergyBall.h"
+#include "CTwisterSkill.h"
 
 
 CSKillMgr::CSKillMgr()
+	: m_pEnergyBall(nullptr)
+	, m_pTwisterSkill(nullptr)
 {
 }
 
 CSKillMgr::~CSKillMgr()
 {
-	for (int i = 0; i < m_vecSkill.size(); ++i)
-	{
-		if (nullptr != m_vecSkill[i])
-			delete m_vecSkill[i];
-	}
+	if (nullptr != m_pEnergyBall)
+		delete m_pEnergyBall;
 
-	m_vecSkill.clear();
+	if (nullptr != m_pTwisterSkill)
+		delete m_pTwisterSkill;
 }
 
 void CSKillMgr::update()
 {
-	for (int i = 0; i < m_vecSkill.size(); ++i)
-	{
-		m_vecSkill[i]->update();
-	}
+	if (nullptr != m_pEnergyBall)
+		m_pEnergyBall->update();
+
+	if (nullptr != m_pTwisterSkill)
+		m_pTwisterSkill->update();
 }
 
-void CSKillMgr::AddSkill(CSkill* _pSkill)
+void CSKillMgr::UpgradeSkill(SKILL_TYPE _eType)
 {
-	m_vecSkill.push_back(_pSkill);
+
+	switch (_eType)
+	{
+		case SKILL_TYPE::ENERGEBALL:
+		{
+			if (nullptr == m_pEnergyBall)
+				m_pEnergyBall = new CEnergyBall();
+			else
+				m_pEnergyBall->Upgrade();
+		}
+			break;
+		case SKILL_TYPE::TWISTER:
+		{
+			if (nullptr == m_pTwisterSkill)
+				m_pTwisterSkill = new CTwisterSkill();
+			else
+				m_pTwisterSkill->Upgrade();
+		}
+			break;
+	}
+
 }

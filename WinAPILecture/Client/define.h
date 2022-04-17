@@ -39,6 +39,7 @@ enum class GROUP_TYPE
 	MONSTER,
 	PROJ_PLAYER,
 	PROJ_MONSTER,
+	ITEM,
 
 	UI = 31,			// UI는 가장 앞에 그려져야 한다!
 	END = 32
@@ -89,6 +90,33 @@ enum class MONSTER_TYPE
 
 	END
 };
+
+
+
+enum class SKILL_TYPE
+{
+	ENERGEBALL,
+	TWISTER,
+
+
+	
+	END
+};
+enum class SKILL_LEVEL
+{
+	NONE,
+	ONE,
+	TWO,
+	THREE,
+	FOUR,
+	FIVE,
+
+
+	END
+};
+
+
+
 
 enum class POOLING_TYPE
 {

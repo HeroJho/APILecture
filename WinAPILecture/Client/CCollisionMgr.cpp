@@ -80,23 +80,6 @@ void CCollisionMgr::CollisionGroupUpdate(GROUP_TYPE _eLeft, GROUP_TYPE _eRight)
 			}
 
 
-			// 풀여부 확인
-			if ((vecRight[j]->GetPooling() && !(vecRight[j]->GetPooling()->Get_Active())) ||
-				(vecLeft[i]->GetPooling() && !(vecLeft[i]->GetPooling()->Get_Active())))
-			{
-				// 둘이 충돌 중이다
-				if (IsCollision(pLeftCol, pRightCol) && iter->second)
-				{
-					pLeftCol->OnCollisionExit(pRightCol);
-					pRightCol->OnCollisionExit(pLeftCol);
-
-					iter->second = false;
-				}
-
-				continue;
-			}
-
-
 			if (IsCollision(pLeftCol, pRightCol))
 			{	// 현재 충돌 중이다.
 				

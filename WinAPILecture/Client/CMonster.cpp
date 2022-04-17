@@ -9,6 +9,8 @@
 
 #include "CCollider.h"
 #include "CPlayer.h"
+#include "CItemBox.h"
+
 
 CMonster::CMonster(CreatureInfo* _sInfo)
 	: m_fSpeed(100.f)
@@ -86,6 +88,16 @@ void CMonster::render(HDC _dc)
 		, RGB(255, 0, 255));
 
 	component_render(_dc);
+}
+
+void CMonster::Die()
+{
+	CItemBox* pItem = new CItemBox(GetPos());
+
+	pItem->SetName(L"ItemBox");
+	CreateObject(pItem, GROUP_TYPE::ITEM);
+
+	DeleteObject(this);
 }
 
 

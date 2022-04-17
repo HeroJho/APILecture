@@ -13,10 +13,13 @@ private:
 public:
     virtual void update();
     virtual void render(HDC _dc);
+    virtual void Die();
 
 private:
     void SkillUpdate();
 
+    virtual void OnCollision(CCollider* _pOther);
+    virtual void OnCollisionEnter(CCollider* _pOther);
 
     CLONE(CPlayer)
 public:
