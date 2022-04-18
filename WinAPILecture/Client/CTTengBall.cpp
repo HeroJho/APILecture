@@ -10,17 +10,22 @@
 #include "CCollider.h"
 #include "Creature.h"
 
-CTTengBall::CTTengBall(Creature* _pOwner, float _fRange, float _fSpeed)
+CTTengBall::CTTengBall(Creature* _pOwner, float _fSpeed)
 	: m_pOwner(_pOwner)
 	, m_fSpeed(_fSpeed)
-	, m_fRange(_fRange)
-	, m_vDir(Vec2(-0.5f, -1.f))
+	, m_fRange(0)
+	, m_vDir(Vec2(0.f, 0.f))
 	, m_fTheta(0.f)
 	, m_pTex(nullptr)
+	, m_iCheckDir(0)
 {
 	SetPos(_pOwner->GetPos());
 
-	m_pTex = CResMgr::GetInst()->LoadTexture(L"MissileTex", L"texture\\Missile.bmp");
+	float x = GetRandomNum(-5.f, 5.f);
+	float y = GetRandomNum(-5.f, 5.f);
+	m_vDir = Vec2(x, y);
+
+	m_pTex = CResMgr::GetInst()->LoadTexture(L"TTengBallTex", L"texture\\TTengBall.bmp");
 
 	m_vDir.Normalize();	// 벡터 정규화
 
@@ -51,37 +56,41 @@ void CTTengBall::update()
 	Vec2 vPrjct(0, 0);				// 투영 벡터
 
 
-	if (vRenderPos.y < vResol_L_U.y)		// 상
+	if (vRenderPos.y < vResol_L_U.y && m_iCheckDir != 1)		// 상
 	{
 		vNormal.x = 0;
 		vNormal.y = 1;
 
 		vPrjct = vNormal * (vReflectionDir.GetInverseVec() * vNormal);
 		vReflectionDir = m_vDir + (vPrjct * 2.f);
+		m_iCheckDir = 1;
 	}
-	else if (vRenderPos.y > vResol_R_B.y)	// 하
+	else if (vRenderPos.y > vResol_R_B.y && m_iCheckDir != 2)	// 하
 	{
 		vNormal.x = 0;
 		vNormal.y = -1;
 
 		vPrjct = vNormal * (vReflectionDir.GetInverseVec() * vNormal);
 		vReflectionDir = m_vDir + (vPrjct * 2.f);
+		m_iCheckDir = 2;
 	}
-	else if (vRenderPos.x < vResol_L_U.x)	// 좌
+	else if (vRenderPos.x < vResol_L_U.x && m_iCheckDir != 3)	// 좌
 	{
 		vNormal.x = 1;
 		vNormal.y = 0;
 
 		vPrjct = vNormal * (vReflectionDir.GetInverseVec() * vNormal);
 		vReflectionDir = m_vDir + (vPrjct * 2.f);
+		m_iCheckDir = 3;
 	}
-	else if (vRenderPos.x > vResol_R_B.x)	// 우
+	else if (vRenderPos.x > vResol_R_B.x && m_iCheckDir != 4)	// 우
 	{
 		vNormal.x = -1;
 		vNormal.y = 0;
 
 		vPrjct = vNormal * (vReflectionDir.GetInverseVec() * vNormal);
 		vReflectionDir = m_vDir + (vPrjct * 2.f);
+		m_iCheckDir = 4;
 	}
 
 	// 닿았다면 반사각 적용
@@ -93,7 +102,7 @@ void CTTengBall::update()
 
 	// 거리가 너무 벌어지면 다시 리스폰
 	float dist = (vPos - m_pOwner->GetPos()).Length();
-	if (700.f < dist)
+	if (1000.f < dist)
 		SetPos(m_pOwner->GetPos());
 	else
 		SetPos(vPos);

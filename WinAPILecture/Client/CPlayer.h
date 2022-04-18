@@ -11,7 +11,7 @@ private:
    
 
 public:
-    virtual void update();
+    virtual void CreatureUpdate();
     virtual void render(HDC _dc);
     virtual void Die();
 

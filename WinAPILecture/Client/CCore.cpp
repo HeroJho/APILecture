@@ -9,6 +9,7 @@
 #include "CEvenMgr.h"
 #include "CCamera.h"
 #include "CUIMgr.h"
+#include "CGameMgr.h"
 
 // CCore* CCore::g_pInst = nullptr;
 
@@ -77,6 +78,7 @@ void CCore::progress()
 	CTimeMgr::GetInst()->update();
 	CKeyMgr::GetInst()->update();
 	CCamera::GetInst()->update();
+	CGameMgr::GetInst()->update();
 
 
 	// ============

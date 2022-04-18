@@ -44,22 +44,10 @@ void CTwisterSkill::update()
 			fCurTheta -= DPI;
 
 		m_vecTwister[i]->SetDir(fCurTheta);
-		m_vecTwister[i]->update();
+		// m_vecTwister[i]->update();
 		fTemp += fThetaPer;
 	}
 
-}
-
-void CTwisterSkill::CreateTwister()
-{
-	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-
-	CTwister* pTwister = new CTwister(CGameMgr::GetInst()->GetPlayer(), 200);
-	pTwister->SetName(L"Twister_Player");
-
-	m_vecTwister.push_back(pTwister);
-
-	CreateObject(pTwister, GROUP_TYPE::PROJ_PLAYER);
 }
 
 void CTwisterSkill::Upgrade()
@@ -137,4 +125,16 @@ void CTwisterSkill::SetSkill_Five()
 	CreateTwister();
 	CreateTwister();
 	CreateTwister();
+}
+
+void CTwisterSkill::CreateTwister()
+{
+	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
+
+	CTwister* pTwister = new CTwister(CGameMgr::GetInst()->GetPlayer(), 200);
+	pTwister->SetName(L"Twister_Player");
+
+	m_vecTwister.push_back(pTwister);
+
+	CreateObject(pTwister, GROUP_TYPE::PROJ_PLAYER);
 }

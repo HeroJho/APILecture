@@ -133,9 +133,6 @@
     <Filter Include="Scripts\Spawner">
       <UniqueIdentifier>{76f80bfd-0298-4e94-aa93-fb238b516231}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\07.Component\Pooling">
-      <UniqueIdentifier>{afef18dd-7c57-4d42-9915-bedd78c35532}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Scripts\Mgr\SkillMgr">
       <UniqueIdentifier>{44ca0d2a-8fa5-4ffc-afad-180540cb514a}</UniqueIdentifier>
     </Filter>
@@ -156,6 +153,27 @@
     </Filter>
     <Filter Include="Scripts\Skill\TTengBall">
       <UniqueIdentifier>{8f34c5fc-ed6b-40f1-8a2f-1e704b605cca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Item\TTengBall_Item">
+      <UniqueIdentifier>{4cad1157-1aaf-490e-8d1e-694c6398b766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Item\StopTime_Item">
+      <UniqueIdentifier>{480d7d06-8d89-4f31-b947-3ab8766618ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Component">
+      <UniqueIdentifier>{2510e13c-c8a0-4deb-87e6-ee57d499fcc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Component\Pooling">
+      <UniqueIdentifier>{afef18dd-7c57-4d42-9915-bedd78c35532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Component\Timmer">
+      <UniqueIdentifier>{789bf253-045a-4d05-afe6-09e41f5d573b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Mgr\PlayTimeMgr">
+      <UniqueIdentifier>{bf1f0186-1884-4cb8-9206-c59c6df65695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scripts\Component\RigidBody">
+      <UniqueIdentifier>{7a762c21-fb05-489b-bcbf-aba5340e1554}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -284,7 +302,7 @@
       <Filter>Scripts\Spawner</Filter>
     </ClInclude>
     <ClInclude Include="CPooling.h">
-      <Filter>Engine\07.Component\Pooling</Filter>
+      <Filter>Scripts\Component\Pooling</Filter>
     </ClInclude>
     <ClInclude Include="CSKillMgr.h">
       <Filter>Scripts\Mgr\SkillMgr</Filter>
@@ -309,6 +327,21 @@
     </ClInclude>
     <ClInclude Include="CTTengBall.h">
       <Filter>Scripts\Skill\TTengBall</Filter>
+    </ClInclude>
+    <ClInclude Include="CTTengBall_Item.h">
+      <Filter>Scripts\Item\TTengBall_Item</Filter>
+    </ClInclude>
+    <ClInclude Include="CStopTime_Item.h">
+      <Filter>Scripts\Item\StopTime_Item</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimmer.h">
+      <Filter>Scripts\Component\Timmer</Filter>
+    </ClInclude>
+    <ClInclude Include="CPlayTimeMgr.h">
+      <Filter>Scripts\Mgr\PlayTimeMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="CRigidBody.h">
+      <Filter>Scripts\Component\RigidBody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -419,7 +452,7 @@
       <Filter>Scripts\Spawner</Filter>
     </ClCompile>
     <ClCompile Include="CPooling.cpp">
-      <Filter>Engine\07.Component\Pooling</Filter>
+      <Filter>Scripts\Component\Pooling</Filter>
     </ClCompile>
     <ClCompile Include="CSKillMgr.cpp">
       <Filter>Scripts\Mgr\SkillMgr</Filter>
@@ -444,6 +477,21 @@
     </ClCompile>
     <ClCompile Include="CTTengBall.cpp">
       <Filter>Scripts\Skill\TTengBall</Filter>
+    </ClCompile>
+    <ClCompile Include="CTTengBall_Item.cpp">
+      <Filter>Scripts\Item\TTengBall_Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CStopTime_Item.cpp">
+      <Filter>Scripts\Item\StopTime_Item</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimmer.cpp">
+      <Filter>Scripts\Component\Timmer</Filter>
+    </ClCompile>
+    <ClCompile Include="CPlayTimeMgr.cpp">
+      <Filter>Scripts\Mgr\PlayTimeMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CRigidBody.cpp">
+      <Filter>Scripts\Component\RigidBody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

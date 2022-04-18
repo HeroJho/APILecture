@@ -14,6 +14,7 @@ private:
 
     float   m_fTheta;           // 이동 방향
     Vec2    m_vDir;             // 이동 방향
+    UINT    m_iCheckDir;        // 공 화면 밖으로 나가면 바들바들 방지
 
 private:
     CTexture* m_pTex;
@@ -35,7 +36,7 @@ public:
 
     CLONE(CTTengBall)
 public:
-    CTTengBall(Creature* _pOwner, float _fRange, float _fSpeed);
+    CTTengBall(Creature* _pOwner, float _fSpeed);
     ~CTTengBall();
 
 };

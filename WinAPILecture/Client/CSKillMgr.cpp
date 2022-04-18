@@ -3,11 +3,13 @@
 
 #include "CEnergyBall.h"
 #include "CTwisterSkill.h"
+#include "CTTengBallSkill.h"
 
 
 CSKillMgr::CSKillMgr()
 	: m_pEnergyBall(nullptr)
 	, m_pTwisterSkill(nullptr)
+	, m_pTTengBallSkill(nullptr)
 {
 }
 
@@ -15,9 +17,10 @@ CSKillMgr::~CSKillMgr()
 {
 	if (nullptr != m_pEnergyBall)
 		delete m_pEnergyBall;
-
 	if (nullptr != m_pTwisterSkill)
 		delete m_pTwisterSkill;
+	if (nullptr != m_pTTengBallSkill)
+		delete m_pTTengBallSkill;
 }
 
 void CSKillMgr::update()
@@ -27,6 +30,9 @@ void CSKillMgr::update()
 
 	if (nullptr != m_pTwisterSkill)
 		m_pTwisterSkill->update();
+
+	if (nullptr != m_pTTengBallSkill)
+		m_pTTengBallSkill->update();
 }
 
 void CSKillMgr::UpgradeSkill(SKILL_TYPE _eType)
@@ -50,6 +56,14 @@ void CSKillMgr::UpgradeSkill(SKILL_TYPE _eType)
 				m_pTwisterSkill->Upgrade();
 		}
 			break;
+		case SKILL_TYPE::TTENGBALL:
+		{
+			if (nullptr == m_pTTengBallSkill)
+				m_pTTengBallSkill = new CTTengBallSkill();
+			else
+				m_pTTengBallSkill->Upgrade();
+		}
+		break;
 	}
 
 }

@@ -35,11 +35,11 @@ enum class GROUP_TYPE
 {
 	DEFAULT,
 	TILE,
+	ITEM,
 	PLAYER,
 	MONSTER,
-	PROJ_PLAYER,
 	PROJ_MONSTER,
-	ITEM,
+	PROJ_PLAYER,
 
 	UI = 31,			// UI는 가장 앞에 그려져야 한다!
 	END = 32
@@ -97,7 +97,7 @@ enum class SKILL_TYPE
 {
 	ENERGEBALL,
 	TWISTER,
-
+	TTENGBALL,
 
 	
 	END

@@ -6,6 +6,8 @@
 
 #include "CCollider.h"
 #include "CAnimator.h"
+#include "CTimmer.h"
+#include "CRigidBody.h"
 #include "CPooling.h"
 
 
@@ -14,6 +16,8 @@ CObject::CObject()
 	, m_vScale{}
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
+	, m_pTimmer(nullptr)
+	, m_pRigidBody(nullptr)
 	, m_pPooling(nullptr)
 	, m_bAlive(true)
 {
@@ -25,6 +29,8 @@ CObject::CObject(const CObject& _origin)
 	, m_vScale(_origin.m_vScale)
 	, m_pCollider(nullptr)
 	, m_pAnimator(nullptr)
+	, m_pTimmer(nullptr)
+	, m_pRigidBody(nullptr)
 	, m_pPooling(nullptr)
 	, m_bAlive(true)
 {
@@ -39,6 +45,18 @@ CObject::CObject(const CObject& _origin)
 		m_pAnimator = new CAnimator(*_origin.m_pAnimator);
 		m_pAnimator->m_pOwner = this;
 	}
+
+	if (_origin.m_pTimmer)
+	{
+		m_pTimmer = new CTimmer(*_origin.m_pTimmer);
+		m_pTimmer->m_pOwner = this;
+	}
+
+	if (_origin.m_pTimmer)
+	{
+		m_pRigidBody = new CRigidBody(*_origin.m_pRigidBody);
+		m_pTimmer->m_pOwner = this;
+	}
 }
 
 CObject::~CObject()
@@ -48,6 +66,12 @@ CObject::~CObject()
 
 	if (nullptr != m_pAnimator)
 		delete m_pAnimator;
+
+	if (nullptr != m_pTimmer)
+		delete m_pTimmer;
+
+	if (nullptr != m_pRigidBody)
+		delete m_pRigidBody;
 
 	if (nullptr != m_pPooling)
 		delete m_pPooling;
@@ -60,6 +84,12 @@ void CObject::finalupdate()
 
 	if (m_pAnimator)
 		m_pAnimator->finalupdate();
+
+	if (m_pTimmer)
+		m_pTimmer->finalupdate();
+
+	if (m_pRigidBody)
+		m_pRigidBody->finalupdate();
 }
 
 void CObject::render(HDC _dc)
@@ -86,6 +116,16 @@ void CObject::component_render(HDC _dc)
 	{
 		m_pAnimator->render(_dc);
 	}
+
+	if (nullptr != m_pTimmer)
+	{
+		m_pTimmer->render(_dc);
+	}
+
+	if (nullptr != m_pRigidBody)
+	{
+		m_pRigidBody->render(_dc);
+	}
 }
 
 void CObject::CreateCollider()
@@ -98,6 +138,18 @@ void CObject::CreateAnimator()
 {
 	m_pAnimator = new CAnimator;
 	m_pAnimator->m_pOwner = this;
+}
+
+void CObject::CreateTimmer()
+{
+	m_pTimmer = new CTimmer;
+	m_pTimmer->m_pOwner = this;
+}
+
+void CObject::CreateRigidBody()
+{
+	m_pRigidBody = new CRigidBody;
+	m_pRigidBody->m_pOwner = this;
 }
 
 void CObject::CreatePooling(POOLING_TYPE _ePoolingType)

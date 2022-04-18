@@ -9,6 +9,8 @@
 #include "CTexture.h"
 #include "CEnergeBall_Item.h"
 #include "CTwister_Item.h"
+#include "CTTengBall_Item.h"
+#include "CStopTime_Item.h"
 
 CItemBox::CItemBox(Vec2 _vPos)
 {
@@ -66,21 +68,39 @@ void CItemBox::GenerateRandomItem()
 	CItem* pItem = nullptr;
 
 	float randomNum = GetRandomNum(0.f, 100.f);
+
 	
-	if (50.f >= randomNum)
+	if (10.f >= randomNum)
 	{
 		pItem = new CEnergeBall_Item(GetPos());
 
 		pItem->SetName(L"Item");
 		CreateObject(pItem, GROUP_TYPE::ITEM);
 	}
-	else if (100.f >= randomNum)
+	else if (20.f >= randomNum)
 	{
 		pItem = new CTwister_Item(GetPos());
 
 		pItem->SetName(L"Item");
 		CreateObject(pItem, GROUP_TYPE::ITEM);
 	}
+	else if (30.f >= randomNum)
+	{
+		pItem = new CTTengBall_Item(GetPos());
 
+		pItem->SetName(L"Item");
+		CreateObject(pItem, GROUP_TYPE::ITEM);
+	}
+	else if (40.f >= randomNum)
+	{
+		pItem = new CStopTime_Item(GetPos());
 
+		pItem->SetName(L"Item");
+		CreateObject(pItem, GROUP_TYPE::ITEM);
+	}
+	else
+	{
+
+	}
+	
 }

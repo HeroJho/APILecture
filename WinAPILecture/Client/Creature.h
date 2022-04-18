@@ -35,6 +35,10 @@ public:
     virtual void Die() = 0;
 
 public:
+    virtual void update();
+    virtual void CreatureUpdate() = 0;
+
+public:
     void SetDir(float _fTheta) { m_fTheta = _fTheta; }
     void SetDir(Vec2 _vDir)
     {

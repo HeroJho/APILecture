@@ -17,6 +17,8 @@
 #include "CCollider.h"
 #include "CAnimator.h"
 #include "CAnimation.h"
+#include "CTimmer.h"
+#include "CRigidBody.h"
 
 CPlayer::CPlayer(CreatureInfo* _sInfo)
 {
@@ -27,8 +29,8 @@ CPlayer::CPlayer(CreatureInfo* _sInfo)
 	
 
 	CreateCollider();
-	GetCollider()->SetOffsetPos(Vec2(0.f, 0.f));
-	GetCollider()->SetScale(Vec2(35.f, 45.f));
+	GetCollider()->SetOffsetPos(Vec2(0.f, -5.f));
+	GetCollider()->SetScale(Vec2(15.f, 25.f));
 
 	CTexture* m_pTex = CResMgr::GetInst()->LoadTexture(L"PlayerTex", L"texture\\link_0.bmp");
 	CreateAnimator();
@@ -39,6 +41,10 @@ CPlayer::CPlayer(CreatureInfo* _sInfo)
 	CAnimation* pAnim = GetAnimator()->FindAnimation(L"WALK_DOWN");
 	for (UINT i = 0; i < pAnim->GetMaxFrame(); ++i)
 		pAnim->GetFrame(i).vOffset = Vec2(0.f, -10.f);
+
+	CreateTimmer();
+	GetTimmer()->SetNoneStopObj();
+
 }
 
 CPlayer::~CPlayer()
@@ -47,31 +53,31 @@ CPlayer::~CPlayer()
 }
 
 
-void CPlayer::update()
+void CPlayer::CreatureUpdate()
 {
 	Vec2 vPos = GetPos();
 
 	if (KEY_HOLD(KEY::W))
 	{
-		vPos.y -= 200.f * fDT;
+		vPos.y -= 300.f * fDT;
 	}
 	if (KEY_HOLD(KEY::S))
 	{
-		vPos.y += 200.f * fDT;
+		vPos.y += 300.f * fDT;
 	}
 	if (KEY_HOLD(KEY::A))
 	{
-		vPos.x -= 200.f * fDT;
+		vPos.x -= 300.f * fDT;
 	}
 	if (KEY_HOLD(KEY::D))
 	{
-		vPos.x += 200.f * fDT;
+		vPos.x += 300.f * fDT;
 	}
 
-	SkillUpdate();
 
 	SetPos(vPos);
 
+	SkillUpdate();
 	GetAnimator()->update();
 }
 
@@ -96,6 +102,9 @@ void CPlayer::SkillUpdate()
 void CPlayer::OnCollision(CCollider* _pOther)
 {
 	CObject* pOtherObj = _pOther->GetObj();
+
+	if (pOtherObj->IsDead())
+		return;
 
 	if (pOtherObj->GetName() == L"Item" && KEY_TAP(KEY::Z))
 	{

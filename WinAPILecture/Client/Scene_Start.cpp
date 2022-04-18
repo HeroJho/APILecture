@@ -58,12 +58,13 @@ void Scene_Start::update()
 void Scene_Start::Enter()
 {
 	// Player
-	CreatureInfo* pInfo = new CreatureInfo(100, 2, 1);
+	CreatureInfo* pInfo = new CreatureInfo(100, 5, 1);
 	CPlayer* pObj = new CPlayer(pInfo);
 	pObj->SetName(L"Player");
 	pObj->SetPos(Vec2(640.f, 384.f));
 	pObj->SetScale(Vec2(100.f, 100.f));
 	AddObject(pObj, GROUP_TYPE::PLAYER);
+
 
 	// 플레이어를 카메라 타겟으로 설정
 	CCamera::GetInst()->SetTarget(pObj);
@@ -72,30 +73,21 @@ void Scene_Start::Enter()
 
 
 	// 기본 에너지볼 스킬 추가
-	// CGameMgr::GetInst()->GetSkillMgr()->UpgradeSkill(SKILL_TYPE::ENERGEBALL);
-
-
-	// Test TTengBall
-	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
-
-	CTTengBall* pTTengBall = new CTTengBall(CGameMgr::GetInst()->GetPlayer(), 0.f, 1000.f);
-	pTTengBall->SetName(L"Missile_Player");
-	pTTengBall->SetScale(Vec2(25.f, 25.f));
-
-	CreateObject(pTTengBall, GROUP_TYPE::PROJ_PLAYER);
-
+	CGameMgr::GetInst()->GetSkillMgr()->UpgradeSkill(SKILL_TYPE::ENERGEBALL);
 
 
 	// Spawner 생성
 	m_pSpawner = new CSpawner();
-	m_pSpawner->Init(MONSTER_TYPE::BALLMAN, 1.f, 1);
+	m_pSpawner->Init(MONSTER_TYPE::BALLMAN, 2.f, 1);
 
 
 	// 충돌 지정 >> 모든 오브젝트마다 충돌 체크하면 경우의 수가 너무 많아진다
 	// 설정한 그룹별로 체크한다!
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::MONSTER);
+	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::MONSTER, GROUP_TYPE::MONSTER);
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::PLAYER, GROUP_TYPE::ITEM);
 	CCollisionMgr::GetInst()->CheckGroup(GROUP_TYPE::MONSTER, GROUP_TYPE::PROJ_PLAYER);
+
 
 	// Camera Look 초기 지정
 	// CCamera::GetInst()->SetLookAt(vResolution / 2.f);
