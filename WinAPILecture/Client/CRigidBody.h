@@ -11,6 +11,7 @@ private:
 
 public:
 	Vec2 GetVelocity() { return m_vVelocity; }
+	void SetZeroVelocity() { m_vVelocity.x = 0.f; m_vVelocity.y = 0.f; }
 
 public:
 	void finalupdate();

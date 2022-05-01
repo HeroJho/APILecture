@@ -10,6 +10,9 @@ private:
     CSpawner* m_pSpawner;
 
 public:
+    void MakeUI();
+
+public:
     virtual void update();
     virtual void Enter();
     virtual void Exit();

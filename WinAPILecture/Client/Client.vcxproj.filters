@@ -175,6 +175,9 @@
     <Filter Include="Scripts\Component\RigidBody">
       <UniqueIdentifier>{7a762c21-fb05-489b-bcbf-aba5340e1554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scripts\Skill\BounceBall">
+      <UniqueIdentifier>{6ce96017-827b-4bdb-b3d7-7f6ab81dce14}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -343,6 +346,9 @@
     <ClInclude Include="CRigidBody.h">
       <Filter>Scripts\Component\RigidBody</Filter>
     </ClInclude>
+    <ClInclude Include="CBounceBall.h">
+      <Filter>Scripts\Skill\BounceBall</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp">
@@ -492,6 +498,9 @@
     </ClCompile>
     <ClCompile Include="CRigidBody.cpp">
       <Filter>Scripts\Component\RigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="CBounceBall.cpp">
+      <Filter>Scripts\Skill\BounceBall</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

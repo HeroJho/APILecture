@@ -20,6 +20,8 @@
 #include "CTimmer.h"
 #include "CRigidBody.h"
 
+#include "CBounceBall.h"
+
 CPlayer::CPlayer(CreatureInfo* _sInfo)
 {
 	m_sInfo = _sInfo;
@@ -73,6 +75,18 @@ void CPlayer::CreatureUpdate()
 	{
 		vPos.x += 300.f * fDT;
 	}
+
+	//if (KEY_TAP(KEY::P))
+	//{
+	//	// TEST
+	//	CScene* pCurScene = CSceneMgr::GetInst()->GetCurScene();
+
+	//	CBounceBall* pBounce = new CBounceBall(CGameMgr::GetInst()->GetPlayer());
+	//	pBounce->SetName(L"BounceBall_Player");
+	//	pBounce->SetScale(Vec2(25.f, 25.f));
+
+	//	CreateObject(pBounce, GROUP_TYPE::PROJ_PLAYER);
+	//}
 
 
 	SetPos(vPos);
