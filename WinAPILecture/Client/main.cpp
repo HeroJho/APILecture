@@ -42,6 +42,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_CLIENT, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
+    int i = 0;
 
     // 윈도우창 생성 >> 윈도우 != 프로세스    >> 하나의 프로세스가 윈도우 x 아니면 여러개도 가질 수 있다.
     if (!InitInstance (hInstance, nCmdShow))
